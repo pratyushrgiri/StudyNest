@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Study Nest — Notes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="notes.css">
+
+</head>
+<body>
+<div class="grain"></div>
+
+<div class="shell notes-shell">
+
+  <!-- ================= SIDEBAR ================= -->
+  <aside class="sidebar">
+    <a href="dashboard" class="brandmark"><span class="dot"></span><span class="word">Study Nest</span></a>
+
+    <span class="nav-label">Overview</span>
+    <nav class="nav">
+      <a href="dashboard">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2.5" y="2.5" width="6" height="6" rx="1"/><rect x="11.5" y="2.5" width="6" height="6" rx="1"/><rect x="2.5" y="11.5" width="6" height="6" rx="1"/><rect x="11.5" y="11.5" width="6" height="6" rx="1"/></svg>
+        <span class="label">Dashboard</span>
+      </a>
+    </nav>
+
+    <span class="nav-label">Workspace</span>
+    <nav class="nav">
+      <a href="notes" class="active">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="2.5" width="12" height="15" rx="1.5"/><line x1="7" y1="7" x2="13" y2="7"/><line x1="7" y1="10.5" x2="13" y2="10.5"/><line x1="7" y1="14" x2="10.5" y2="14"/></svg>
+        <span class="label">Notes</span>
+      </a>
+      <a href="timetable">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2.5" y="4" width="15" height="13.5" rx="1.5"/><line x1="2.5" y1="8" x2="17.5" y2="8"/><line x1="6" y1="2" x2="6" y2="5.5"/><line x1="14" y1="2" x2="14" y2="5.5"/></svg>
+        <span class="label">Timetable</span>
+      </a>
+      <a href="homework">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3.5" width="4" height="4" rx=".8"/><path d="M4 5.5l1 1 1.8-1.8"/><line x1="9.5" y1="5.5" x2="17" y2="5.5"/><rect x="3" y="11.5" width="4" height="4" rx=".8"/><line x1="9.5" y1="13.5" x2="17" y2="13.5"/></svg>
+        <span class="label">Homework</span>
+      </a>
+      <a href="assignments">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="5" y1="2.5" x2="5" y2="17.5"/><path d="M5 3.5h9l-2.5 3L14 9.5H5"/></svg>
+        <span class="label">Assignments</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-foot">
+      <div class="profile">
+        <div class="avatar">A</div>
+        <div class="who"><b>Aria Kova</b><span>Grade 11</span></div>
+        <a href="study-nest-auth" class="logout" title="Sign out">
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 3H4.5a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1H8"/><path d="M13 6.5l3.5 3.5-3.5 3.5"/><line x1="16.3" y1="10" x2="7.5" y2="10"/></svg>
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ================= NOTE LIST ================= -->
+  <section class="list-col">
+    <div class="list-head">
+      <h2>Notes</h2>
+      <a href="#n1" class="new-btn" title="New note">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="10" y1="4" x2="10" y2="16"/><line x1="4" y1="10" x2="16" y2="10"/></svg>
+      </a>
+    </div>
+
+    <div class="list-search">
+      <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8.5" cy="8.5" r="5.5"/><line x1="16" y1="16" x2="12.6" y2="12.6"/></svg>
+      <input type="text" placeholder="Search notes">
+    </div>
+
+    <div class="folder-label">Teacher's Notes</div>
+    <a href="#n2" class="note-row n2">
+      <div class="nr-title">Mr. Rao — Lab Guidelines</div>
+      <div class="nr-snip">Always label axes and include uncertainty values in every report…</div>
+      <div class="nr-meta"><span class="nr-date">Yesterday</span></div>
+    </a>
+    <a href="#n4" class="note-row n4">
+      <div class="nr-title">Ms. Chen — Reading List</div>
+      <div class="nr-snip">Optional but recommended texts for the semester project…</div>
+      <div class="nr-meta"><span class="nr-date">Mon</span></div>
+    </a>
+
+    <div class="folder-label">Class Notes</div>
+    <a href="#n1" class="note-row n1">
+      <div class="nr-title">Physics — Momentum &amp; Impulse</div>
+      <div class="nr-snip">Impulse equals the change in momentum of an object…</div>
+      <div class="nr-meta"><span class="nr-date">2h ago</span></div>
+    </a>
+    <a href="#n3" class="note-row n3">
+      <div class="nr-title">History Essay Outline</div>
+      <div class="nr-snip">Causes, key figures, and long-term impact of the revolution…</div>
+      <div class="nr-meta"><span class="nr-date">2 days ago</span></div>
+    </a>
+    <a href="#n5" class="note-row n5">
+      <div class="nr-title">Chemistry — Reminders</div>
+      <div class="nr-snip">Bring safety goggles, review molarity formulas before Thu…</div>
+      <div class="nr-meta"><span class="nr-date">3 days ago</span></div>
+    </a>
+  </section>
+
+  <!-- ================= EDITOR ================= -->
+  <section class="editor-col">
+
+    <div class="toolbar">
+      <button title="Heading">H1</button>
+      <button title="Subheading">H2</button>
+      <div class="tb-sep"></div>
+      <button title="Bold"><strong>B</strong></button>
+      <button title="Italic"><em>I</em></button>
+      <div class="tb-sep"></div>
+      <button title="Bulleted list">•—</button>
+      <button title="Checklist">☑</button>
+      <button title="Quote">&rdquo;</button>
+      <button title="Code">&lt;/&gt;</button>
+    </div>
+
+    <!-- NOTE 1 — default -->
+    <article class="note-doc" id="n1">
+      <div class="doc-head">
+        <span class="chip folder-chip">Class Notes · Physics</span>
+        <h1>Momentum &amp; Impulse</h1>
+        <div class="doc-meta">Edited 2 hours ago</div>
+      </div>
+      <div class="md">
+        <h2>## Definitions</h2>
+        <p>Momentum is the product of an object's <strong>mass</strong> and <strong>velocity</strong>. Impulse is the change in momentum produced by a force over time.</p>
+        <pre>p = m · v
+J = Δp = F · Δt</pre>
+        <h3>### Key points</h3>
+        <ul>
+          <li>Momentum is a vector — direction matters.</li>
+          <li>In a closed system, total momentum is conserved.</li>
+          <li>Impulse-momentum theorem links force, time, and Δp.</li>
+        </ul>
+        <blockquote>Review the collision examples from Tuesday before Friday's quiz.</blockquote>
+        <ul>
+          <li class="task"><input type="checkbox" class="checkbox" checked disabled> Re-read section 4.2</li>
+          <li class="task"><input type="checkbox" class="checkbox" disabled> Practice problems 1–8</li>
+          <li class="task"><input type="checkbox" class="checkbox" disabled> Watch momentum lab recap</li>
+        </ul>
+      </div>
+    </article>
+
+    <!-- NOTE 2 -->
+    <article class="note-doc" id="n2">
+      <div class="doc-head">
+        <span class="chip folder-chip">Teacher's Notes · Chemistry</span>
+        <h1>Lab Guidelines — Mr. Rao</h1>
+        <div class="doc-meta">Edited yesterday</div>
+      </div>
+      <div class="md">
+        <blockquote>Always label axes with units, and include an uncertainty value for every measurement.</blockquote>
+        <h3>### Report format</h3>
+        <ol>
+          <li>Hypothesis</li>
+          <li>Materials &amp; method</li>
+          <li>Data table</li>
+          <li>Graph with labelled axes</li>
+          <li>Conclusion — compare to hypothesis</li>
+        </ol>
+        <p>Reports are due <strong>one week</strong> after the lab session. Late submissions lose 5% per day.</p>
+        <ul>
+          <li class="task"><input type="checkbox" class="checkbox" disabled> Print data table template</li>
+          <li class="task"><input type="checkbox" class="checkbox" disabled> Bring goggles + lab coat</li>
+        </ul>
+      </div>
+    </article>
+
+    <!-- NOTE 3 -->
+    <article class="note-doc" id="n3">
+      <div class="doc-head">
+        <span class="chip folder-chip">Class Notes · History</span>
+        <h1>Essay Outline — Industrial Revolution</h1>
+        <div class="doc-meta">Edited 2 days ago</div>
+      </div>
+      <div class="md">
+        <h2>## Structure</h2>
+        <ol>
+          <li>Causes — agriculture, capital, resources</li>
+          <li>Key figures — Watt, Arkwright, Stephenson</li>
+          <li>Long-term impact — urbanisation, labour conditions</li>
+        </ol>
+        <p>Aim for <strong>1,200 words</strong>, citing at least three sources. Use Chicago style footnotes.</p>
+        <blockquote>Mr. Okoye wants a clear thesis in the first paragraph — no throat-clearing.</blockquote>
+      </div>
+    </article>
+
+    <!-- NOTE 4 -->
+    <article class="note-doc" id="n4">
+      <div class="doc-head">
+        <span class="chip folder-chip">Teacher's Notes · English</span>
+        <h1>Reading List — Ms. Chen</h1>
+        <div class="doc-meta">Edited Monday</div>
+      </div>
+      <div class="md">
+        <p>Optional but recommended texts to strengthen your semester essay:</p>
+        <ul>
+          <li><em>The Lifted Veil</em> — George Eliot</li>
+          <li><em>Selected Essays</em> — Virginia Woolf</li>
+          <li>Any two poems from the class anthology, Ch. 3</li>
+        </ul>
+        <blockquote>Bring one passage you found difficult — we'll unpack it together on Thursday.</blockquote>
+      </div>
+    </article>
+
+    <!-- NOTE 5 -->
+    <article class="note-doc" id="n5">
+      <div class="doc-head">
+        <span class="chip folder-chip">Class Notes · Chemistry</span>
+        <h1>Reminders</h1>
+        <div class="doc-meta">Edited 3 days ago</div>
+      </div>
+      <div class="md">
+        <ul>
+          <li class="task"><input type="checkbox" class="checkbox" disabled> Bring safety goggles</li>
+          <li class="task"><input type="checkbox" class="checkbox" checked disabled> Review molarity formulas</li>
+          <li class="task"><input type="checkbox" class="checkbox" disabled> Print periodic table handout</li>
+        </ul>
+        <code>M = mol solute / L solution</code>
+      </div>
+    </article>
+
+  </section>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Study Nest — Homework</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="homework.css">
+
+</head>
+<body>
+<div class="grain"></div>
+
+<div class="shell">
+
+  <!-- ================= SIDEBAR ================= -->
+  <aside class="sidebar">
+    <a href="dashboard" class="brandmark"><span class="dot"></span><span class="word">Study Nest</span></a>
+
+    <span class="nav-label">Overview</span>
+    <nav class="nav">
+      <a href="dashboard">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2.5" y="2.5" width="6" height="6" rx="1"/><rect x="11.5" y="2.5" width="6" height="6" rx="1"/><rect x="2.5" y="11.5" width="6" height="6" rx="1"/><rect x="11.5" y="11.5" width="6" height="6" rx="1"/></svg>
+        <span class="label">Dashboard</span>
+      </a>
+    </nav>
+
+    <span class="nav-label">Workspace</span>
+    <nav class="nav">
+      <a href="notes">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="2.5" width="12" height="15" rx="1.5"/><line x1="7" y1="7" x2="13" y2="7"/><line x1="7" y1="10.5" x2="13" y2="10.5"/><line x1="7" y1="14" x2="10.5" y2="14"/></svg>
+        <span class="label">Notes</span>
+      </a>
+      <a href="timetable">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2.5" y="4" width="15" height="13.5" rx="1.5"/><line x1="2.5" y1="8" x2="17.5" y2="8"/><line x1="6" y1="2" x2="6" y2="5.5"/><line x1="14" y1="2" x2="14" y2="5.5"/></svg>
+        <span class="label">Timetable</span>
+      </a>
+      <a href="homework" class="active">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3.5" width="4" height="4" rx=".8"/><path d="M4 5.5l1 1 1.8-1.8"/><line x1="9.5" y1="5.5" x2="17" y2="5.5"/><rect x="3" y="11.5" width="4" height="4" rx=".8"/><line x1="9.5" y1="13.5" x2="17" y2="13.5"/></svg>
+        <span class="label">Homework</span>
+      </a>
+      <a href="assignments">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="5" y1="2.5" x2="5" y2="17.5"/><path d="M5 3.5h9l-2.5 3L14 9.5H5"/></svg>
+        <span class="label">Assignments</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-foot">
+      <div class="profile">
+        <div class="avatar">A</div>
+        <div class="who"><b>Aria Kova</b><span>Grade 11</span></div>
+        <a href="study-nest-auth" class="logout" title="Sign out">
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 3H4.5a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1H8"/><path d="M13 6.5l3.5 3.5-3.5 3.5"/><line x1="16.3" y1="10" x2="7.5" y2="10"/></svg>
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ================= MAIN ================= -->
+  <main class="main">
+
+    <div class="topbar">
+      <div>
+        <span class="eyebrow">7 tasks</span>
+        <h1>Homework</h1>
+      </div>
+    </div>
+
+    <div class="filter-tabs hw-tabs" style="margin-bottom:1.8rem;">
+      <input type="radio" name="hwfilter" id="f-all" checked>
+      <input type="radio" name="hwfilter" id="f-week">
+      <input type="radio" name="hwfilter" id="f-done">
+      <div class="tabrow">
+        <label for="f-all">All</label>
+        <label for="f-week">Due this week</label>
+        <label for="f-done">Completed</label>
+        <span class="indicator"></span>
+      </div>
+    </div>
+
+    <div class="hw-panels">
+
+      <!-- ===== ALL ===== -->
+      <div class="hw-panel panel-all">
+
+        <div>
+          <div class="section-label">Overdue</div>
+          <div style="display:flex; flex-direction:column; gap:.7rem;">
+            <div class="hw-item overdue">
+              <input type="checkbox" class="checkbox">
+              <div style="flex:1;">
+                <div class="hw-title">Lab report — momentum experiment</div>
+                <div class="hw-desc">Write up hypothesis, data table and conclusion following Mr. Rao's format.</div>
+                <div class="hw-meta">
+                  <span class="chip">Physics</span>
+                  <span class="status-dot overdue"></span>
+                  <span class="hw-date">Was due Mon</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="section-label">Due this week</div>
+          <div style="display:flex; flex-direction:column; gap:.7rem;">
+            <div class="hw-item">
+              <input type="checkbox" class="checkbox">
+              <div style="flex:1;">
+                <div class="hw-title">History essay — industrial revolution</div>
+                <div class="hw-desc">1,200 words, Chicago-style footnotes, minimum three sources.</div>
+                <div class="hw-meta"><span class="chip">History</span><span class="status-dot"></span><span class="hw-date">Due Friday</span></div>
+              </div>
+            </div>
+            <div class="hw-item">
+              <input type="checkbox" class="checkbox">
+              <div style="flex:1;">
+                <div class="hw-title">Chapter 7 reading &amp; summary</div>
+                <div class="hw-desc">Read pages 112–140, write a half-page summary of key themes.</div>
+                <div class="hw-meta"><span class="chip">English</span><span class="status-dot"></span><span class="hw-date">Due Monday</span></div>
+              </div>
+            </div>
+            <div class="hw-item">
+              <input type="checkbox" class="checkbox">
+              <div style="flex:1;">
+                <div class="hw-title">Problem set 5 — derivatives</div>
+                <div class="hw-desc">Questions 1 through 14, show full working for related rates.</div>
+                <div class="hw-meta"><span class="chip">Calculus</span><span class="status-dot"></span><span class="hw-date">Due Tuesday</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="section-label">Completed</div>
+          <div style="display:flex; flex-direction:column; gap:.7rem;">
+            <div class="hw-item done">
+              <input type="checkbox" class="checkbox" checked>
+              <div style="flex:1;">
+                <div class="hw-title">Molarity worksheet</div>
+                <div class="hw-desc">Practice set on molarity and dilution calculations.</div>
+                <div class="hw-meta"><span class="chip">Chemistry</span><span class="status-dot done"></span><span class="hw-date">Submitted Mon</span></div>
+              </div>
+            </div>
+            <div class="hw-item done">
+              <input type="checkbox" class="checkbox" checked>
+              <div style="flex:1;">
+                <div class="hw-title">Vocabulary quiz prep</div>
+                <div class="hw-desc">Reviewed unit 4 vocabulary list and sample sentences.</div>
+                <div class="hw-meta"><span class="chip">English</span><span class="status-dot done"></span><span class="hw-date">Submitted last week</span></div>
+              </div>
+            </div>
+            <div class="hw-item done">
+              <input type="checkbox" class="checkbox" checked>
+              <div style="flex:1;">
+                <div class="hw-title">Map annotation — trade routes</div>
+                <div class="hw-desc">Labelled major trade routes and key ports on the handout map.</div>
+                <div class="hw-meta"><span class="chip">History</span><span class="status-dot done"></span><span class="hw-date">Submitted last week</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ===== DUE THIS WEEK ===== -->
+      <div class="hw-panel panel-week">
+        <div style="display:flex; flex-direction:column; gap:.7rem;">
+          <div class="hw-item">
+            <input type="checkbox" class="checkbox">
+            <div style="flex:1;">
+              <div class="hw-title">History essay — industrial revolution</div>
+              <div class="hw-desc">1,200 words, Chicago-style footnotes, minimum three sources.</div>
+              <div class="hw-meta"><span class="chip">History</span><span class="status-dot"></span><span class="hw-date">Due Friday</span></div>
+            </div>
+          </div>
+          <div class="hw-item">
+            <input type="checkbox" class="checkbox">
+            <div style="flex:1;">
+              <div class="hw-title">Chapter 7 reading &amp; summary</div>
+              <div class="hw-desc">Read pages 112–140, write a half-page summary of key themes.</div>
+              <div class="hw-meta"><span class="chip">English</span><span class="status-dot"></span><span class="hw-date">Due Monday</span></div>
+            </div>
+          </div>
+          <div class="hw-item">
+            <input type="checkbox" class="checkbox">
+            <div style="flex:1;">
+              <div class="hw-title">Problem set 5 — derivatives</div>
+              <div class="hw-desc">Questions 1 through 14, show full working for related rates.</div>
+              <div class="hw-meta"><span class="chip">Calculus</span><span class="status-dot"></span><span class="hw-date">Due Tuesday</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== COMPLETED ===== -->
+      <div class="hw-panel panel-done">
+        <div style="display:flex; flex-direction:column; gap:.7rem;">
+          <div class="hw-item done">
+            <input type="checkbox" class="checkbox" checked>
+            <div style="flex:1;">
+              <div class="hw-title">Molarity worksheet</div>
+              <div class="hw-desc">Practice set on molarity and dilution calculations.</div>
+              <div class="hw-meta"><span class="chip">Chemistry</span><span class="status-dot done"></span><span class="hw-date">Submitted Mon</span></div>
+            </div>
+          </div>
+          <div class="hw-item done">
+            <input type="checkbox" class="checkbox" checked>
+            <div style="flex:1;">
+              <div class="hw-title">Vocabulary quiz prep</div>
+              <div class="hw-desc">Reviewed unit 4 vocabulary list and sample sentences.</div>
+              <div class="hw-meta"><span class="chip">English</span><span class="status-dot done"></span><span class="hw-date">Submitted last week</span></div>
+            </div>
+          </div>
+          <div class="hw-item done">
+            <input type="checkbox" class="checkbox" checked>
+            <div style="flex:1;">
+              <div class="hw-title">Map annotation — trade routes</div>
+              <div class="hw-desc">Labelled major trade routes and key ports on the handout map.</div>
+              <div class="hw-meta"><span class="chip">History</span><span class="status-dot done"></span><span class="hw-date">Submitted last week</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </main>
+</div>
+
+</body>
+</html>

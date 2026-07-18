@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Study Nest — Timetable</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="timetable.css">
+</head>
+<body>
+<div class="grain"></div>
+
+<div class="shell">
+
+  <!-- ================= SIDEBAR ================= -->
+  <aside class="sidebar">
+    <a href="dashboard" class="brandmark"><span class="dot"></span><span class="word">Study Nest</span></a>
+
+    <span class="nav-label">Overview</span>
+    <nav class="nav">
+      <a href="dashboard">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2.5" y="2.5" width="6" height="6" rx="1"/><rect x="11.5" y="2.5" width="6" height="6" rx="1"/><rect x="2.5" y="11.5" width="6" height="6" rx="1"/><rect x="11.5" y="11.5" width="6" height="6" rx="1"/></svg>
+        <span class="label">Dashboard</span>
+      </a>
+    </nav>
+
+    <span class="nav-label">Workspace</span>
+    <nav class="nav">
+      <a href="notes">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="2.5" width="12" height="15" rx="1.5"/><line x1="7" y1="7" x2="13" y2="7"/><line x1="7" y1="10.5" x2="13" y2="10.5"/><line x1="7" y1="14" x2="10.5" y2="14"/></svg>
+        <span class="label">Notes</span>
+      </a>
+      <a href="timetable" class="active">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2.5" y="4" width="15" height="13.5" rx="1.5"/><line x1="2.5" y1="8" x2="17.5" y2="8"/><line x1="6" y1="2" x2="6" y2="5.5"/><line x1="14" y1="2" x2="14" y2="5.5"/></svg>
+        <span class="label">Timetable</span>
+      </a>
+      <a href="homework">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3.5" width="4" height="4" rx=".8"/><path d="M4 5.5l1 1 1.8-1.8"/><line x1="9.5" y1="5.5" x2="17" y2="5.5"/><rect x="3" y="11.5" width="4" height="4" rx=".8"/><line x1="9.5" y1="13.5" x2="17" y2="13.5"/></svg>
+        <span class="label">Homework</span>
+      </a>
+      <a href="assignments">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="5" y1="2.5" x2="5" y2="17.5"/><path d="M5 3.5h9l-2.5 3L14 9.5H5"/></svg>
+        <span class="label">Assignments</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-foot">
+      <div class="profile">
+        <div class="avatar">A</div>
+        <div class="who"><b>Aria Kova</b><span>Grade 11</span></div>
+        <a href="study-nest-auth" class="logout" title="Sign out">
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 3H4.5a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1H8"/><path d="M13 6.5l3.5 3.5-3.5 3.5"/><line x1="16.3" y1="10" x2="7.5" y2="10"/></svg>
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ================= MAIN ================= -->
+  <main class="main">
+
+    <div class="topbar">
+      <div>
+        <span class="eyebrow">Semester 2</span>
+        <h1>Timetable</h1>
+      </div>
+      <div class="week-nav">
+        <button><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 4l-6 6 6 6"/></svg></button>
+        <span>14 — 18 July 2026</span>
+        <button><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 4l6 6-6 6"/></svg></button>
+      </div>
+    </div>
+
+    <!-- ===== desktop grid ===== -->
+    <div class="grid-wrap">
+      <div class="tt-grid">
+        <div class="tt-head"></div>
+        <div class="tt-head">Mon</div>
+        <div class="tt-head">Tue</div>
+        <div class="tt-head today">Wed</div>
+        <div class="tt-head">Thu</div>
+        <div class="tt-head">Fri</div>
+
+        <!-- time column -->
+        <div class="tt-col" style="border-left:none;">
+          <div class="tt-slot"></div><div class="tt-time">08:00</div>
+          <div class="tt-slot"></div><div class="tt-time">09:00</div>
+          <div class="tt-slot"></div><div class="tt-time">10:00</div>
+          <div class="tt-slot"></div><div class="tt-time">11:00</div>
+          <div class="tt-slot"></div><div class="tt-time">12:00</div>
+          <div class="tt-slot"></div><div class="tt-time">13:00</div>
+          <div class="tt-slot"></div><div class="tt-time">14:00</div>
+          <div class="tt-slot"></div><div class="tt-time">15:00</div>
+        </div>
+
+        <!-- Mon -->
+        <div class="tt-col">
+          <div class="tt-slot"></div><div class="tt-slot"></div><div class="tt-slot"></div><div class="tt-slot"></div><div class="tt-slot"></div><div class="tt-slot"></div><div class="tt-slot"></div><div class="tt-slot"></div>
+          <div class="tt-block" style="top:0; height:100px;"><div class="b-title">Calculus II</div><div class="b-meta">Rm 214 · Alvarez</div></div>
+          <div class="tt-block" style="top:112px; height:100px;"><div class="b-title">Chemistry</div><div class="b-meta">Lab 3 · Chen</div></div>
+          <div class="tt-block" style="top:280px; height:88px;"><div class="b-title">Physics</div><div class="b-meta">Rm 302 · Rao</div></div>
+        </div>
+
+        <!-- Tue -->
+        <div class="tt-col">
+          <div class="tt-slot"></div><div class="tt-slot"></div><div class="tt-slot"></div><div class="tt-slot"></div><div class="tt-slot"></div><div class="tt-slot"></div><div class="tt-slot"></div><div class="tt-slot"></div>
+          <div class="tt-block" style="top:56px; height:100px;"><div class="b-title">World History</div><div class="b-meta">Rm 108 · Okoye</div></div>
+          <div class="tt-block" style="top:224px; height:100px;"><div class="b-title">English Lit</div><div class="b-meta">Rm 119 · Bianchi</div></div>
+        </div>
+
+        <!-- Wed (today) -->
+        <div class="tt-col">
+          <div class="tt-slot"></div><div class="tt-slot"></div><div class="tt-slot"></div><div class="tt-slot"></div><div class="tt-slot"></div><div class="tt-slot"></div><div class="tt-slot"></div><div class="tt-slot"></div>
+          <div class="tt-block" style="top:0; height:100px;"><div class="b-title">Calculus II</div><div class="b-meta">Rm 214 · Alvarez</div></div>
+          <div class="tt-block accent" style="top:112px; height:100px;"><div class="b-title">Chemistry — Lab</div><div class="b-meta">Lab 3 · Chen</div></div>
+          <div class="tt-block" style="top:224px; height:88px;"><div class="b-title">World History</div><div class="b-meta">Rm 108 · Okoye</div></div>
+          <div class="tt-block" style="top:336px; height:100px;"><div class="b-title">Physics</div><div class="b-meta">Rm 302 · Rao</div></div>
+        </div>
+
+        <!-- Thu -->
+        <div class="tt-col">
+          <div class="tt-slot"></div><div class="tt-slot"></div><div class="tt-slot"></div><div class="tt-slot"></div><div class="tt-slot"></div><div class="tt-slot"></div><div class="tt-slot"></div><div class="tt-slot"></div>
+          <div class="tt-block" style="top:56px; height:100px;"><div class="b-title">Chemistry</div><div class="b-meta">Lab 3 · Chen</div></div>
+          <div class="tt-block" style="top:280px; height:88px;"><div class="b-title">English Lit</div><div class="b-meta">Rm 119 · Bianchi</div></div>
+        </div>
+
+        <!-- Fri -->
+        <div class="tt-col">
+          <div class="tt-slot"></div><div class="tt-slot"></div><div class="tt-slot"></div><div class="tt-slot"></div><div class="tt-slot"></div><div class="tt-slot"></div><div class="tt-slot"></div><div class="tt-slot"></div>
+          <div class="tt-block" style="top:0; height:100px;"><div class="b-title">Physics</div><div class="b-meta">Rm 302 · Rao</div></div>
+          <div class="tt-block" style="top:168px; height:100px;"><div class="b-title">Calculus II</div><div class="b-meta">Rm 214 · Alvarez</div></div>
+          <div class="tt-block" style="top:336px; height:88px;"><div class="b-title">World History</div><div class="b-meta">Rm 108 · Okoye</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== mobile day switcher ===== -->
+    <div class="day-tabs">
+      <input type="radio" name="day" id="d-mon">
+      <input type="radio" name="day" id="d-tue">
+      <input type="radio" name="day" id="d-wed" checked>
+      <input type="radio" name="day" id="d-thu">
+      <input type="radio" name="day" id="d-fri">
+
+      <div class="tabrow">
+        <label for="d-mon">Mon</label>
+        <label for="d-tue">Tue</label>
+        <label for="d-wed">Wed</label>
+        <label for="d-thu">Thu</label>
+        <label for="d-fri">Fri</label>
+        <span class="indicator"></span>
+      </div>
+
+      <div class="day-panels">
+        <div class="day-panel panel-mon">
+          <div class="card day-card"><div><div class="b-title">Calculus II</div><div class="b-meta">Rm 214 · Alvarez</div></div><div class="b-time">08:00</div></div>
+          <div class="card day-card"><div><div class="b-title">Chemistry</div><div class="b-meta">Lab 3 · Chen</div></div><div class="b-time">09:10</div></div>
+          <div class="card day-card"><div><div class="b-title">Physics</div><div class="b-meta">Rm 302 · Rao</div></div><div class="b-time">12:15</div></div>
+        </div>
+        <div class="day-panel panel-tue">
+          <div class="card day-card"><div><div class="b-title">World History</div><div class="b-meta">Rm 108 · Okoye</div></div><div class="b-time">09:00</div></div>
+          <div class="card day-card"><div><div class="b-title">English Lit</div><div class="b-meta">Rm 119 · Bianchi</div></div><div class="b-time">12:00</div></div>
+        </div>
+        <div class="day-panel panel-wed">
+          <div class="card day-card"><div><div class="b-title">Calculus II</div><div class="b-meta">Rm 214 · Alvarez</div></div><div class="b-time">08:00</div></div>
+          <div class="card day-card"><div><div class="b-title">Chemistry — Lab</div><div class="b-meta">Lab 3 · Chen</div></div><div class="b-time">09:10</div></div>
+          <div class="card day-card"><div><div class="b-title">World History</div><div class="b-meta">Rm 108 · Okoye</div></div><div class="b-time">10:30</div></div>
+          <div class="card day-card"><div><div class="b-title">Physics</div><div class="b-meta">Rm 302 · Rao</div></div><div class="b-time">12:15</div></div>
+        </div>
+        <div class="day-panel panel-thu">
+          <div class="card day-card"><div><div class="b-title">Chemistry</div><div class="b-meta">Lab 3 · Chen</div></div><div class="b-time">09:00</div></div>
+          <div class="card day-card"><div><div class="b-title">English Lit</div><div class="b-meta">Rm 119 · Bianchi</div></div><div class="b-time">13:00</div></div>
+        </div>
+        <div class="day-panel panel-fri">
+          <div class="card day-card"><div><div class="b-title">Physics</div><div class="b-meta">Rm 302 · Rao</div></div><div class="b-time">08:00</div></div>
+          <div class="card day-card"><div><div class="b-title">Calculus II</div><div class="b-meta">Rm 214 · Alvarez</div></div><div class="b-time">11:00</div></div>
+          <div class="card day-card"><div><div class="b-title">World History</div><div class="b-meta">Rm 108 · Okoye</div></div><div class="b-time">14:00</div></div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+</body>
+</html>

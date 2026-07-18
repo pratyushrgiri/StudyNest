@@ -1,0 +1,642 @@
+/* ============================================================
+   STUDY NEST — shared design system
+   ============================================================ */
+
+:root {
+  --black: #0a0a0a;
+  --black-soft: #101010;
+  --card: #141414;
+  --card-raised: #191919;
+  --line: #242424;
+  --line-soft: #1b1b1b;
+  --ink: #ececea;
+  --ink-dim: #8f8f8c;
+  --ink-faint: #56554f;
+  --paper: #f4f2ec;
+  --paper-dim: #d8d5cc;
+
+  --display: "Fraunces", Georgia, serif;
+  --body: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --r-sm: 7px;
+  --r-md: 12px;
+  --r-lg: 18px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  color-scheme: dark;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  background: var(--black);
+  color: var(--ink);
+  font-family: var(--body);
+  min-height: 100vh;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+button,
+input {
+  font-family: inherit;
+}
+
+::selection {
+  background: var(--paper);
+  color: #111;
+}
+
+/* faint grain overlay */
+.grain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 50;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ============================================================
+   APP SHELL
+   ============================================================ */
+
+.shell {
+  display: grid;
+  grid-template-columns: 232px 1fr;
+  min-height: 100vh;
+}
+
+/* ---------- sidebar ---------- */
+.sidebar {
+  border-right: 1px solid var(--line);
+  background: var(--black-soft);
+  display: flex;
+  flex-direction: column;
+  padding: 1.6rem 1.1rem;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
+.brandmark {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.3rem 0.5rem 1.6rem;
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: 1.08rem;
+  letter-spacing: -0.01em;
+}
+.brandmark .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--paper);
+  box-shadow: 0 0 0 3px rgba(244, 242, 236, 0.08);
+  flex-shrink: 0;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+.nav a {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.62rem 0.6rem;
+  border-radius: var(--r-sm);
+  font-size: 0.85rem;
+  color: var(--ink-dim);
+  transition:
+    background 0.25s var(--ease),
+    color 0.25s var(--ease),
+    transform 0.25s var(--ease);
+}
+.nav a svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+.nav a:hover {
+  background: var(--line-soft);
+  color: var(--ink);
+  transform: translateX(2px);
+}
+.nav a.active {
+  background: var(--card-raised);
+  color: var(--paper);
+  border: 1px solid var(--line);
+}
+.nav .nav-label {
+  font-family: var(--mono);
+  font-size: 0.64rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin: 1.3rem 0.6rem 0.5rem;
+}
+
+.sidebar-foot {
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+}
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.5rem;
+  border-radius: var(--r-sm);
+}
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--paper);
+  color: #111;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+.profile .who {
+  flex: 1;
+  min-width: 0;
+}
+.profile .who b {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 500;
+}
+.profile .who span {
+  display: block;
+  font-size: 0.7rem;
+  color: var(--ink-dim);
+}
+.profile .logout {
+  color: var(--ink-faint);
+  transition: color 0.25s;
+}
+.profile .logout svg {
+  width: 17px;
+  height: 17px;
+}
+.profile .logout:hover {
+  color: var(--ink);
+}
+
+/* ---------- main column ---------- */
+.main {
+  padding: 2.6rem 3rem 4rem;
+  max-width: 1180px;
+  width: 100%;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 2.2rem;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  animation: rise 0.6s var(--ease) both;
+}
+.topbar h1 {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: clamp(1.7rem, 2.6vw, 2.2rem);
+  letter-spacing: -0.01em;
+}
+.topbar .eyebrow {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-dim);
+  margin-bottom: 0.5rem;
+  display: block;
+}
+.topbar .sub {
+  color: var(--ink-dim);
+  font-size: 0.88rem;
+  margin-top: 0.35rem;
+}
+
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 0.5rem 0.9rem;
+  color: var(--ink-faint);
+  font-size: 0.8rem;
+  min-width: 190px;
+}
+.search svg {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+}
+.search input {
+  background: none;
+  border: none;
+  outline: none;
+  color: var(--ink);
+  font-size: 0.82rem;
+  width: 100%;
+}
+.search input::placeholder {
+  color: var(--ink-faint);
+}
+
+/* ============================================================
+   COMPONENTS
+   ============================================================ */
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--r-md);
+  padding: 1.3rem 1.4rem;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.6rem;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  color: var(--ink-dim);
+  white-space: nowrap;
+}
+.chip.filled {
+  background: var(--paper);
+  color: #111;
+  border-color: var(--paper);
+  font-weight: 600;
+}
+.chip.outline-strong {
+  border-color: var(--ink-dim);
+  color: var(--ink);
+}
+.chip.dashed {
+  border-style: dashed;
+  color: var(--ink);
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  border: 1.5px solid var(--ink-dim);
+  flex-shrink: 0;
+  display: inline-block;
+}
+.status-dot.done {
+  background: var(--paper);
+  border-color: var(--paper);
+}
+.status-dot.overdue {
+  border-style: dashed;
+  border-color: var(--ink);
+}
+
+.progress {
+  height: 4px;
+  background: var(--line);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.progress > span {
+  display: block;
+  height: 100%;
+  background: var(--paper);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.05rem;
+  border-radius: 9px;
+  font-size: 0.83rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--ink);
+  transition:
+    transform 0.25s var(--ease),
+    background 0.25s var(--ease),
+    border-color 0.25s var(--ease);
+}
+.btn:hover {
+  border-color: var(--ink-dim);
+  transform: translateY(-1px);
+}
+.btn.primary {
+  background: var(--paper);
+  color: #111;
+  border-color: var(--paper);
+}
+.btn.primary:hover {
+  background: #fff;
+}
+.btn svg {
+  width: 15px;
+  height: 15px;
+}
+
+.checkbox {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 1px solid var(--line-soft-2, var(--ink-faint));
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+  flex-shrink: 0;
+  transition: border-color 0.25s;
+}
+.checkbox:checked {
+  border-color: var(--paper);
+  background: var(--paper);
+}
+.checkbox:checked::after {
+  content: "✓";
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.62rem;
+  color: #111;
+}
+
+.divider-line {
+  height: 1px;
+  background: var(--line);
+  border: none;
+  margin: 1.6rem 0;
+}
+
+/* section label used above groups */
+.section-label {
+  font-family: var(--mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.section-label::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+}
+
+/* ---------- markdown preview typography (used in Notes) ---------- */
+.md h1,
+.md h2,
+.md h3 {
+  font-family: var(--display);
+  font-weight: 500;
+  line-height: 1.25;
+}
+.md h1 {
+  font-size: 1.5rem;
+  margin: 1.4rem 0 0.6rem;
+}
+.md h2 {
+  font-size: 1.2rem;
+  margin: 1.3rem 0 0.55rem;
+  color: var(--ink);
+}
+.md h3 {
+  font-size: 1.02rem;
+  margin: 1.1rem 0 0.5rem;
+  color: var(--ink-dim);
+}
+.md p {
+  font-size: 0.92rem;
+  line-height: 1.75;
+  color: var(--ink);
+  margin: 0.6rem 0;
+}
+.md ul,
+.md ol {
+  margin: 0.6rem 0 0.6rem 1.3rem;
+  font-size: 0.92rem;
+  line-height: 1.75;
+}
+.md li {
+  margin-bottom: 0.25rem;
+}
+.md .task {
+  list-style: none;
+  margin-left: -1.3rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+}
+.md .task input {
+  margin-top: 0.3rem;
+}
+.md blockquote {
+  border-left: 2px solid var(--paper-dim);
+  padding: 0.2rem 0 0.2rem 1rem;
+  color: var(--ink-dim);
+  font-style: italic;
+  margin: 1rem 0;
+  font-size: 0.9rem;
+}
+.md code {
+  font-family: var(--mono);
+  font-size: 0.82rem;
+  background: var(--line-soft);
+  border: 1px solid var(--line);
+  padding: 0.1rem 0.4rem;
+  border-radius: 4px;
+}
+.md pre {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  line-height: 1.6;
+  background: var(--black-soft);
+  border: 1px solid var(--line);
+  padding: 0.9rem 1rem;
+  border-radius: 8px;
+  overflow-x: auto;
+  margin: 1rem 0;
+  color: var(--ink-dim);
+}
+.md strong {
+  color: var(--paper);
+  font-weight: 600;
+}
+.md hr {
+  border: none;
+  height: 1px;
+  background: var(--line);
+  margin: 1.4rem 0;
+}
+
+/* ---------- radio-hack tab filters (reused across pages) ---------- */
+.filter-tabs {
+  position: relative;
+}
+.filter-tabs input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.filter-tabs .tabrow {
+  display: inline-flex;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 4px;
+  position: relative;
+}
+.filter-tabs .tabrow label {
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--ink-dim);
+  border-radius: 7px;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;
+  transition: color 0.3s var(--ease);
+}
+.filter-tabs .indicator {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  height: calc(100% - 8px);
+  background: var(--paper);
+  border-radius: 7px;
+  z-index: 1;
+  transition:
+    transform 0.4s var(--ease),
+    width 0.4s var(--ease);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 1020px) {
+  .shell {
+    grid-template-columns: 84px 1fr;
+  }
+  .brandmark span.word,
+  .nav a .label,
+  .nav-label,
+  .profile .who {
+    display: none;
+  }
+  .nav a {
+    justify-content: center;
+  }
+  .brandmark {
+    justify-content: center;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .profile {
+    justify-content: center;
+  }
+  .main {
+    padding: 2rem 1.4rem 3rem;
+  }
+}
+
+@media (max-width: 680px) {
+  .shell {
+    grid-template-columns: 1fr;
+  }
+  .sidebar {
+    position: relative;
+    height: auto;
+    flex-direction: row;
+    align-items: center;
+    padding: 1rem;
+  }
+  .brandmark {
+    padding: 0;
+    margin-right: auto;
+  }
+  .nav {
+    flex-direction: row;
+  }
+  .nav-label {
+    display: none;
+  }
+  .sidebar-foot {
+    margin: 0;
+    border: none;
+    padding: 0;
+  }
+  .profile .who {
+    display: none;
+  }
+}

@@ -1,0 +1,89 @@
+.hw-tabs input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+#f-all:checked ~ .tabrow .indicator {
+  transform: translateX(0);
+  width: calc(33.33% - 4px);
+}
+#f-week:checked ~ .tabrow .indicator {
+  transform: translateX(100%);
+  width: calc(33.33% - 4px);
+}
+#f-done:checked ~ .tabrow .indicator {
+  transform: translateX(200%);
+  width: calc(33.33% - 4px);
+}
+.hw-tabs .tabrow .indicator {
+  width: calc(33.33% - 4px);
+}
+#f-all:checked ~ .tabrow label[for="f-all"],
+#f-week:checked ~ .tabrow label[for="f-week"],
+#f-done:checked ~ .tabrow label[for="f-done"] {
+  color: #111;
+}
+
+.hw-panel {
+  display: none;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+#f-all:checked ~ .hw-panels .panel-all,
+#f-week:checked ~ .hw-panels .panel-week,
+#f-done:checked ~ .hw-panels .panel-done {
+  display: flex;
+  animation: fade 0.4s var(--ease);
+}
+
+.hw-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+  padding: 1rem 1.1rem;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: var(--card);
+  transition:
+    border-color 0.25s,
+    transform 0.25s;
+}
+.hw-item:hover {
+  border-color: var(--ink-dim);
+  transform: translateY(-1px);
+}
+.hw-item.overdue {
+  border-style: dashed;
+}
+.hw-item.done .hw-title {
+  color: var(--ink-dim);
+  text-decoration: line-through;
+  text-decoration-color: var(--ink-faint);
+}
+.hw-item .checkbox {
+  margin-top: 0.2rem;
+}
+.hw-title {
+  font-size: 0.92rem;
+  font-weight: 500;
+}
+.hw-desc {
+  font-size: 0.8rem;
+  color: var(--ink-dim);
+  margin-top: 0.3rem;
+  line-height: 1.5;
+}
+.hw-meta {
+  display: flex;
+  gap: 0.55rem;
+  align-items: center;
+  margin-top: 0.7rem;
+  flex-wrap: wrap;
+}
+.hw-date {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  color: var(--ink-dim);
+  margin-left: auto;
+  white-space: nowrap;
+}

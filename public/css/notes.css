@@ -1,0 +1,229 @@
+.shell.notes-shell {
+  grid-template-columns: 232px 300px 1fr;
+}
+
+/* ---------- notes list column ---------- */
+.list-col {
+  border-right: 1px solid var(--line);
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 1.6rem 1.2rem;
+  overflow-y: auto;
+}
+.list-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.1rem;
+}
+.list-head h2 {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: 1.25rem;
+}
+.new-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink-dim);
+  transition:
+    background 0.25s,
+    color 0.25s,
+    transform 0.25s;
+}
+.new-btn:hover {
+  background: var(--paper);
+  color: #111;
+  border-color: var(--paper);
+  transform: rotate(90deg);
+}
+.new-btn svg {
+  width: 14px;
+  height: 14px;
+}
+
+.list-search {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  padding: 0.55rem 0.7rem;
+  color: var(--ink-faint);
+  font-size: 0.8rem;
+  margin-bottom: 1.3rem;
+}
+.list-search svg {
+  width: 14px;
+  height: 14px;
+}
+.list-search input {
+  background: none;
+  border: none;
+  outline: none;
+  color: var(--ink);
+  font-size: 0.8rem;
+  width: 100%;
+}
+.list-search input::placeholder {
+  color: var(--ink-faint);
+}
+
+.folder-label {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin: 1.1rem 0 0.55rem;
+}
+.folder-label:first-of-type {
+  margin-top: 0;
+}
+
+.note-row {
+  display: block;
+  padding: 0.75rem 0.7rem;
+  border-radius: 9px;
+  border: 1px solid transparent;
+  margin-bottom: 0.15rem;
+  transition:
+    background 0.2s var(--ease),
+    border-color 0.2s var(--ease);
+}
+.note-row:hover {
+  background: var(--line-soft);
+}
+.note-row .nr-title {
+  font-size: 0.85rem;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+.note-row .nr-snip {
+  font-size: 0.75rem;
+  color: var(--ink-dim);
+  line-height: 1.4;
+}
+.note-row .nr-meta {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.4rem;
+}
+.note-row .nr-date {
+  font-family: var(--mono);
+  font-size: 0.65rem;
+  color: var(--ink-faint);
+}
+
+/* ---------- editor column ---------- */
+.editor-col {
+  padding: 1.6rem 3rem 4rem;
+  max-width: 760px;
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding-bottom: 1.1rem;
+  margin-bottom: 1.6rem;
+  border-bottom: 1px solid var(--line);
+  animation: rise 0.5s var(--ease) both;
+}
+.toolbar button {
+  width: 30px;
+  height: 30px;
+  border-radius: 7px;
+  border: 1px solid transparent;
+  background: none;
+  color: var(--ink-dim);
+  cursor: pointer;
+  font-family: var(--mono);
+  font-size: 0.78rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    background 0.2s,
+    color 0.2s,
+    border-color 0.2s;
+}
+.toolbar button:hover {
+  background: var(--line-soft);
+  color: var(--ink);
+  border-color: var(--line);
+}
+.toolbar .tb-sep {
+  width: 1px;
+  height: 18px;
+  background: var(--line);
+  margin: 0 0.5rem;
+}
+
+.note-doc {
+  display: none;
+  animation: fade 0.5s var(--ease) both;
+}
+.note-doc:target {
+  display: block;
+}
+.notes-shell:has(.note-doc:target) .note-doc:first-of-type:not(:target) {
+  display: none;
+}
+.notes-shell:not(:has(.note-doc:target)) .note-doc:first-of-type {
+  display: block;
+}
+
+.doc-head {
+  margin-bottom: 0.4rem;
+}
+.doc-head .folder-chip {
+  margin-bottom: 0.7rem;
+}
+.doc-head h1 {
+  font-family: var(--display);
+  font-weight: 500;
+  font-size: 1.9rem;
+  letter-spacing: -0.01em;
+}
+.doc-head .doc-meta {
+  font-size: 0.78rem;
+  color: var(--ink-dim);
+  margin-top: 0.4rem;
+}
+
+@media (max-width: 1180px) {
+  .shell.notes-shell {
+    grid-template-columns: 232px 260px 1fr;
+  }
+  .editor-col {
+    padding: 1.6rem 2rem 3rem;
+  }
+}
+@media (max-width: 1020px) {
+  .shell.notes-shell {
+    grid-template-columns: 84px 240px 1fr;
+  }
+}
+@media (max-width: 780px) {
+  .shell.notes-shell {
+    grid-template-columns: 1fr;
+  }
+  .list-col {
+    height: auto;
+    position: relative;
+    border-right: none;
+    border-bottom: 1px solid var(--line);
+  }
+  .editor-col {
+    padding: 1.6rem 1.4rem 3rem;
+  }
+}

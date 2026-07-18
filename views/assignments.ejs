@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Study Nest — Assignments</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="grain"></div>
+
+<div class="shell">
+
+  <!-- ================= SIDEBAR ================= -->
+  <aside class="sidebar">
+    <a href="dashboard" class="brandmark"><span class="dot"></span><span class="word">Study Nest</span></a>
+
+    <span class="nav-label">Overview</span>
+    <nav class="nav">
+      <a href="dashboard">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2.5" y="2.5" width="6" height="6" rx="1"/><rect x="11.5" y="2.5" width="6" height="6" rx="1"/><rect x="2.5" y="11.5" width="6" height="6" rx="1"/><rect x="11.5" y="11.5" width="6" height="6" rx="1"/></svg>
+        <span class="label">Dashboard</span>
+      </a>
+    </nav>
+
+    <span class="nav-label">Workspace</span>
+    <nav class="nav">
+      <a href="notes">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="2.5" width="12" height="15" rx="1.5"/><line x1="7" y1="7" x2="13" y2="7"/><line x1="7" y1="10.5" x2="13" y2="10.5"/><line x1="7" y1="14" x2="10.5" y2="14"/></svg>
+        <span class="label">Notes</span>
+      </a>
+      <a href="timetable">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2.5" y="4" width="15" height="13.5" rx="1.5"/><line x1="2.5" y1="8" x2="17.5" y2="8"/><line x1="6" y1="2" x2="6" y2="5.5"/><line x1="14" y1="2" x2="14" y2="5.5"/></svg>
+        <span class="label">Timetable</span>
+      </a>
+      <a href="homework">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3.5" width="4" height="4" rx=".8"/><path d="M4 5.5l1 1 1.8-1.8"/><line x1="9.5" y1="5.5" x2="17" y2="5.5"/><rect x="3" y="11.5" width="4" height="4" rx=".8"/><line x1="9.5" y1="13.5" x2="17" y2="13.5"/></svg>
+        <span class="label">Homework</span>
+      </a>
+      <a href="assignments" class="active">
+        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="5" y1="2.5" x2="5" y2="17.5"/><path d="M5 3.5h9l-2.5 3L14 9.5H5"/></svg>
+        <span class="label">Assignments</span>
+      </a>
+    </nav>
+
+    <div class="sidebar-foot">
+      <div class="profile">
+        <div class="avatar">A</div>
+        <div class="who"><b>Aria Kova</b><span>Grade 11</span></div>
+        <a href="study-nest-auth" class="logout" title="Sign out">
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 3H4.5a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1H8"/><path d="M13 6.5l3.5 3.5-3.5 3.5"/><line x1="16.3" y1="10" x2="7.5" y2="10"/></svg>
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ================= MAIN ================= -->
+  <main class="main">
+
+    <div class="topbar">
+      <div>
+        <span class="eyebrow">4 assignments</span>
+        <h1>Assignments</h1>
+      </div>
+    </div>
+
+    <div class="filter-tabs as-tabs" style="margin-bottom:1.8rem;">
+      <input type="radio" name="asfilter" id="a-all" checked>
+      <input type="radio" name="asfilter" id="a-progress">
+      <input type="radio" name="asfilter" id="a-submitted">
+      <div class="tabrow">
+        <label for="a-all">All</label>
+        <label for="a-progress">In progress</label>
+        <label for="a-submitted">Submitted</label>
+        <span class="indicator"></span>
+      </div>
+    </div>
+
+    <div class="as-panels">
+
+      <!-- ===== ALL ===== -->
+      <div class="as-panel panel-all as-grid" style="display:grid;">
+
+        <div class="card as-card">
+          <div class="as-top">
+            <div>
+              <div class="as-title">Science Fair — Final Presentation</div>
+              <div class="as-teacher">Ms. Chen · Chemistry</div>
+            </div>
+            <span class="chip dashed">Overdue</span>
+          </div>
+          <p class="as-desc">Prepare slides and a physical display board summarising your titration experiment and findings.</p>
+          <div class="as-progress-row"><div class="progress"><span style="width:40%;"></span></div><span>40%</span></div>
+          <div class="as-foot"><span class="as-due">Was due 12 Jul</span><a href="notes" class="btn">Open notes</a></div>
+        </div>
+
+        <div class="card as-card">
+          <div class="as-top">
+            <div>
+              <div class="as-title">Research Paper — Renewable Energy</div>
+              <div class="as-teacher">Mr. Okoye · Geography</div>
+            </div>
+            <span class="chip outline-strong">In progress</span>
+          </div>
+          <p class="as-desc">2,000-word paper comparing two renewable energy sources, with primary and secondary sourcing.</p>
+          <div class="as-progress-row"><div class="progress"><span style="width:65%;"></span></div><span>65%</span></div>
+          <div class="as-foot"><span class="as-due">Due 28 Jul</span><a href="notes" class="btn">Open notes</a></div>
+        </div>
+
+        <div class="card as-card">
+          <div class="as-top">
+            <div>
+              <div class="as-title">Group Project — Bridge Design</div>
+              <div class="as-teacher">Mr. Alvarez · Physics</div>
+            </div>
+            <span class="chip outline-strong">In progress</span>
+          </div>
+          <p class="as-desc">Design and build a scale model bridge, then present a load-bearing analysis with your group.</p>
+          <div class="as-progress-row"><div class="progress"><span style="width:20%;"></span></div><span>20%</span></div>
+          <div class="as-foot"><span class="as-due">Due 4 Aug</span><a href="notes" class="btn">Open notes</a></div>
+        </div>
+
+        <div class="card as-card">
+          <div class="as-top">
+            <div>
+              <div class="as-title">Portfolio — Short Story Collection</div>
+              <div class="as-teacher">Ms. Bianchi · English</div>
+            </div>
+            <span class="chip filled">Submitted</span>
+          </div>
+          <p class="as-desc">Three original short stories with a reflective foreword on your writing process.</p>
+          <div class="as-progress-row"><div class="progress"><span style="width:100%;"></span></div><span>100%</span></div>
+          <div class="as-foot"><span class="as-due">Submitted 8 Jul</span><a href="notes" class="btn">Open notes</a></div>
+        </div>
+
+      </div>
+
+      <!-- ===== IN PROGRESS ===== -->
+      <div class="as-panel panel-progress as-grid">
+
+        <div class="card as-card">
+          <div class="as-top">
+            <div>
+              <div class="as-title">Research Paper — Renewable Energy</div>
+              <div class="as-teacher">Mr. Okoye · Geography</div>
+            </div>
+            <span class="chip outline-strong">In progress</span>
+          </div>
+          <p class="as-desc">2,000-word paper comparing two renewable energy sources, with primary and secondary sourcing.</p>
+          <div class="as-progress-row"><div class="progress"><span style="width:65%;"></span></div><span>65%</span></div>
+          <div class="as-foot"><span class="as-due">Due 28 Jul</span><a href="notes" class="btn">Open notes</a></div>
+        </div>
+
+        <div class="card as-card">
+          <div class="as-top">
+            <div>
+              <div class="as-title">Group Project — Bridge Design</div>
+              <div class="as-teacher">Mr. Alvarez · Physics</div>
+            </div>
+            <span class="chip outline-strong">In progress</span>
+          </div>
+          <p class="as-desc">Design and build a scale model bridge, then present a load-bearing analysis with your group.</p>
+          <div class="as-progress-row"><div class="progress"><span style="width:20%;"></span></div><span>20%</span></div>
+          <div class="as-foot"><span class="as-due">Due 4 Aug</span><a href="notes" class="btn">Open notes</a></div>
+        </div>
+
+      </div>
+
+      <!-- ===== SUBMITTED ===== -->
+      <div class="as-panel panel-submitted as-grid">
+
+        <div class="card as-card">
+          <div class="as-top">
+            <div>
+              <div class="as-title">Portfolio — Short Story Collection</div>
+              <div class="as-teacher">Ms. Bianchi · English</div>
+            </div>
+            <span class="chip filled">Submitted</span>
+          </div>
+          <p class="as-desc">Three original short stories with a reflective foreword on your writing process.</p>
+          <div class="as-progress-row"><div class="progress"><span style="width:100%;"></span></div><span>100%</span></div>
+          <div class="as-foot"><span class="as-due">Submitted 8 Jul</span><a href="notes" class="btn">Open notes</a></div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+</div>
+
+</body>
+</html>
