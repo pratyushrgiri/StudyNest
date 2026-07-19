@@ -15,6 +15,6 @@ pageRouter.get('/homework',getHomework);
 pageRouter.get('/notes',getNotes);
 pageRouter.get('/timetable',getTimeTable);
 pageRouter.get('/assignments',getAssignments);
-
+pageRouter.get('/index',getIndex);
 export default pageRouter;
 
