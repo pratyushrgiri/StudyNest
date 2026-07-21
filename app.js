@@ -14,5 +14,5 @@ app.get('/assignments',pageRouter);
 app.get('/timetable',pageRouter);
 app.get('/homework',pageRouter);
 app.get('/notes',pageRouter);
-
+app.get('/index',pageRouter);
 app.listen(8000,()=>console.log(`Server Started! http://localhost:${PORT}`));
