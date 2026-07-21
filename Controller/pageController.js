@@ -1,28 +1,29 @@
+import fs from 'fs';
 export const getIndex=(req,res)=>{
 
-    res.render('index');
+    res.sendFile('index.html', { root: './views' });
 }
 
 export const getDashboard=(req,res)=>{
 
-    res.render('dashboard');
+    res.sendFile('dashboard.html', { root: './views' });
 }
 export const getAssignments=(req,res)=>{
 
-    res.render('assignments');
+    res.sendFile('assignments.html', { root: './views' });
 }
 
 export const getHomework=(req,res)=>{
 
-    res.render('homework');
+    res.sendFile('homework.html', { root: './views' });
 }
 
 export const getNotes=(req,res)=>{
 
-    res.render('notes');
+    res.sendFile('notes.html', { root: './views' });
 }
 
 export const getTimeTable=(req,res)=>{
 
-    res.render('timetable');
+    res.sendFile('timetable.html', { root: './views' });
 }

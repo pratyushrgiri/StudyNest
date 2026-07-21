@@ -7,7 +7,7 @@ const app= express();
 const PORT= process.env.PORT || 8000;
 
 app.use(express.static("public/css"));
-app.set("view engine",'ejs');
+app.use(express.static("public/js"));
 app.get('/',pageRouter);
 app.get('/dashboard',pageRouter);
 app.get('/assignments',pageRouter);

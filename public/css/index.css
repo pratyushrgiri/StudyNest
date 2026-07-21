@@ -291,6 +291,45 @@ body::before {
   animation-delay: 0.35s;
 }
 
+.error-panel {
+  display: none;
+  gap: 0.8rem;
+  align-items: flex-start;
+  margin-bottom: 1.25rem;
+  padding: 0.9rem 1rem;
+  border: 1px solid rgba(255, 112, 112, 0.28);
+  border-radius: 10px;
+  background: rgba(255, 94, 94, 0.12);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+}
+
+.error-icon {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #ff6b6b;
+  color: #111;
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+.error-panel strong {
+  display: block;
+  font-size: 0.84rem;
+  color: #ffd5d5;
+  margin-bottom: 0.2rem;
+}
+
+.error-panel p {
+  margin: 0;
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: #f9bcbc;
+}
+
 .auth > input[type="radio"] {
   position: absolute;
   opacity: 0;

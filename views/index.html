@@ -70,24 +70,32 @@
         <span class="indicator"></span>
       </div>
 
+      <div class="error-panel" role="alert">
+        <span class="error-icon">!</span>
+        <div>
+          <strong id="issue-title">Sign-in issue</strong>
+          <p id="issue-description">Please check your school email and password, then try again.</p>
+        </div>
+      </div>
+
       <div class="panels">
 
         <!-- ---- LOGIN ---- -->
-        <form class="panel panel-login" autocomplete="off">
+        <form class="panel panel-login auth-form" autocomplete="off" action="/login" method="POST">
           <div>
             <h2 class="title">Welcome back</h2>
             <p class="sub">Sign in to open your nest.</p>
           </div>
 
           <div class="field">
-            <input type="email" placeholder=" " required>
+            <input type="email" class="email" placeholder=" " >
             <label>School email</label>
             <span class="bar"></span>
           </div>
 
           <div class="field">
-            <input type="password" placeholder=" " required>
-            <label>Password</label>
+            <input type="password" class="password" placeholder=" " >
+            <label>⁕⁕⁕⁕⁕⁕⁕⁕</label>
             <span class="bar"></span>
           </div>
 
@@ -96,17 +104,19 @@
             <a href="#">Forgot password?</a>
           </div>
 
-          <a href="dashboard" class="cta" style="display:flex; align-items:center; justify-content:center;"><span>Sign in</span></a>
+          <!-- <a href="dashboard" class="cta" style="display:flex; align-items:center; justify-content:center;"><span>Sign in</span></a> -->
+          <button type="submit" class="cta" style="display:flex; align-items:center; justify-content:center;" ><span>Sign in</span></button>
+
 
           <div class="divider">or</div>
 
           <p class="switch">New to Study Nest?
-            <label for="tab-register">Create an account</label>
+            <label for="tab-register" >Create an account</label>
           </p>
         </form>
 
         <!-- ---- REGISTER ---- -->
-        <form class="panel panel-register" autocomplete="off">
+        <form class="panel panel-register auth-form" autocomplete="off">
           <div>
             <h2 class="title">Build your nest</h2>
             <p class="sub">Takes less than a minute.</p>
@@ -114,39 +124,39 @@
 
           <div class="row2">
             <div class="field">
-              <input type="text" placeholder=" " required>
+              <input type="text"class="name" id="firstName" placeholder=" " >
               <label>First name</label>
               <span class="bar"></span>
             </div>
             <div class="field">
-              <input type="text" placeholder=" " required>
+              <input type="text" class="name" id="lastName" placeholder=" " >
               <label>Last name</label>
               <span class="bar"></span>
             </div>
           </div>
 
           <div class="field">
-            <input type="email" placeholder=" " required>
+            <input type="email" class="email" placeholder=" " >
             <label>School email</label>
             <span class="bar"></span>
           </div>
 
           <div class="field">
-            <input type="password" placeholder=" " required>
+            <input type="password" class="password" id="password" placeholder=" " >
             <label>Password</label>
             <span class="bar"></span>
           </div>
 
           <div class="field">
-            <input type="password" placeholder=" " required>
+            <input type="password" class="password" id="confirmPassword" placeholder=" " >
             <label>Confirm password</label>
             <span class="bar"></span>
           </div>
 
-          <label class="check"><input type="checkbox" required> I agree to the Terms &amp; Privacy Policy</label>
+          <label class="check"><input type="checkbox" > I agree to the Terms &amp; Privacy Policy</label>
 
-          <a href="dashboard" class="cta" style="display:flex; align-items:center; justify-content:center;"><span>Create account</span></a>
-
+          <!-- <a href="dashboard" class="cta" style="display:flex; align-items:center; justify-content:center;"><span>Create account</span></a> -->
+          <button type="submit" class="cta" style="display:flex; align-items:center; justify-content:center;"><span>Create account</span></button>
           <p class="switch">Already have an account?
             <label for="tab-login">Sign in</label>
           </p>
@@ -157,6 +167,6 @@
   </section>
 
 </div>
-
+<script src="auth.js"></script>
 </body>
 </html>
