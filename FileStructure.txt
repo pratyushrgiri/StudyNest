@@ -1,0 +1,38 @@
+StudyNest
+│── .env
+│── .gitignore
+│── app.js
+│── config
+│   └── dbConfig.js
+│── Controller
+│   └── pageController.js
+│── LICENSE
+│── middleware
+│── Model
+│   └── users.js
+│── package-lock.json
+│── package.json
+│── public
+│   │── assets
+│   │── css
+│   │   │── assignments.css
+│   │   │── dashboard.css
+│   │   │── homework.css
+│   │   │── index.css
+│   │   │── notes.css
+│   │   │── style.css
+│   │   └── timetable.css
+│   └── js
+│       └── auth.js
+│── README.md
+│── routes
+│   └── pageRoutes.js
+│── services
+│   └── userServices.js
+└── views
+    │── assignments.html
+    │── dashboard.html
+    │── homework.html
+    │── index.html
+    │── notes.html
+    └── timetable.html

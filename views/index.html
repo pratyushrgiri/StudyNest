@@ -88,19 +88,19 @@
           </div>
 
           <div class="field">
-            <input type="email" class="email" placeholder=" " >
+            <input type="email" class="email" name="email" placeholder=" " >
             <label>School email</label>
             <span class="bar"></span>
           </div>
 
           <div class="field">
-            <input type="password" class="password" placeholder=" " >
+            <input type="password" class="password" name="password" placeholder=" " >
             <label>⁕⁕⁕⁕⁕⁕⁕⁕</label>
             <span class="bar"></span>
           </div>
 
           <div class="aux">
-            <label class="check"><input type="checkbox"> Stay signed in</label>
+            <label class="check"><input type="checkbox" name="staySignedIn"> Stay signed in</label>
             <a href="#">Forgot password?</a>
           </div>
 
@@ -116,7 +116,7 @@
         </form>
 
         <!-- ---- REGISTER ---- -->
-        <form class="panel panel-register auth-form" autocomplete="off">
+        <form class="panel panel-register auth-form" autocomplete="off" action="/register" method="POST">
           <div>
             <h2 class="title">Build your nest</h2>
             <p class="sub">Takes less than a minute.</p>
@@ -124,36 +124,36 @@
 
           <div class="row2">
             <div class="field">
-              <input type="text"class="name" id="firstName" placeholder=" " >
+              <input type="text"class="name" id="firstName" name="firstName" placeholder=" " >
               <label>First name</label>
               <span class="bar"></span>
             </div>
             <div class="field">
-              <input type="text" class="name" id="lastName" placeholder=" " >
+              <input type="text" class="name" id="lastName" name="lastName" placeholder=" " >
               <label>Last name</label>
               <span class="bar"></span>
             </div>
           </div>
 
           <div class="field">
-            <input type="email" class="email" placeholder=" " >
+            <input type="email" class="email" name="email" placeholder=" " >
             <label>School email</label>
             <span class="bar"></span>
           </div>
 
           <div class="field">
-            <input type="password" class="password" id="password" placeholder=" " >
+            <input type="password" class="password" name="password" id="password" placeholder=" " >
             <label>Password</label>
             <span class="bar"></span>
           </div>
 
           <div class="field">
-            <input type="password" class="password" id="confirmPassword" placeholder=" " >
+            <input type="password" class="password" name="confirmPassword" id="confirmPassword" placeholder=" " >
             <label>Confirm password</label>
             <span class="bar"></span>
           </div>
 
-          <label class="check"><input type="checkbox" > I agree to the Terms &amp; Privacy Policy</label>
+          <label class="check"><input type="checkbox" name="terms" > I agree to the Terms &amp; Privacy Policy</label>
 
           <!-- <a href="dashboard" class="cta" style="display:flex; align-items:center; justify-content:center;"><span>Create account</span></a> -->
           <button type="submit" class="cta" style="display:flex; align-items:center; justify-content:center;"><span>Create account</span></button>

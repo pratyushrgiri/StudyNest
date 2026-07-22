@@ -1,4 +1,4 @@
-import User from "../models/userModel.js";
+import User from "../Model/users.js";
 export const allAccounts= async()=>{
     try{
         const users= await User.find();
