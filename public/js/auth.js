@@ -2,7 +2,7 @@ const forms = document.querySelectorAll(".auth-form");
 
 forms.forEach(form => {
 
-    form.addEventListener("submit", (event) => {
+    form.addEventListener("submit", async (event) => {
 
         event.preventDefault();
 
@@ -34,6 +34,7 @@ forms.forEach(form => {
             form.submit();
         }
 
+
         // REGISTER
         if (form.classList.contains("panel-register")) {
 
@@ -46,6 +47,7 @@ forms.forEach(form => {
 
             const confirmPassword =
                 form.querySelector("#confirmPassword").value;
+
 
             if (
                 !firstName ||
@@ -61,6 +63,7 @@ forms.forEach(form => {
                 return;
             }
 
+
             if (!validateEmail(email)) {
                 sendError(
                     "Registration issue",
@@ -68,6 +71,7 @@ forms.forEach(form => {
                 );
                 return;
             }
+
 
             if (password.length < 6) {
                 sendError(
@@ -77,6 +81,7 @@ forms.forEach(form => {
                 return;
             }
 
+
             if (password !== confirmPassword) {
                 sendError(
                     "Registration issue",
@@ -85,30 +90,88 @@ forms.forEach(form => {
                 return;
             }
 
-            form.submit();
+
+            // Send registration data to backend
+            try {
+
+                const response = await fetch("/register", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        firstName,
+                        lastName,
+                        email,
+                        password
+                    })
+                });
+
+
+                const data = await response.json();
+
+
+                if (!response.ok) {
+
+                    sendError(
+                        "Registration issue",
+                        data.message
+                    );
+
+                    return;
+                }
+
+
+                // Registration successful
+                window.location.href = "/";
+
+            } catch (error) {
+
+                console.error(error);
+
+                sendError(
+                    "Registration issue",
+                    "Something went wrong. Please try again."
+                );
+            }
         }
 
     });
 
 });
 
+
+
 function sendError(title, description) {
+
     const errorPanel = document.querySelector(".error-panel");
     const issueTitle = document.getElementById("issue-title");
     const issueDescription = document.getElementById("issue-description");
 
+
     issueTitle.textContent = title;
     issueDescription.textContent = description;
+
 
     errorPanel.style.display = "flex";
 }
 
+
+
 function hideError() {
+
     const errorPanel = document.querySelector(".error-panel");
+
     errorPanel.style.display = "none";
+
 }
 
+
+
 function validateEmail(email) {
+
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
     return emailRegex.test(email);
+
 }

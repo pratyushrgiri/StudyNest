@@ -24,16 +24,18 @@ export const registerUser = async (req, res) => {
 } catch (err) {
 
     if (err.code === 11000) {
-
-        return res.status(409).render("index", {
-            error: "Email already registered."
+        return res.status(409).json({
+            success: false,
+            message: "Email already registered."
         });
-
     }
 
     console.error(err);
 
-    res.status(500).send("Something went wrong.");
-
+    res.status(500).json({
+        success: false,
+        message: "Something went wrong."
+    });
 }
+
 };
