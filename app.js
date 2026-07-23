@@ -14,14 +14,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // page routes
-app.get('/',pageRouter);
-app.get('/dashboard',pageRouter);
-app.get('/assignments',pageRouter);
-app.get('/timetable',pageRouter);
-app.get('/homework',pageRouter);
-app.get('/notes',pageRouter);
-app.get('/index',pageRouter);
-
+app.use('/',pageRouter);
 //login and registration routes
-app.post('/register', authRouter);
+app.use('/', authRouter);
 app.listen(8000,()=>console.log(`Server Started! http://localhost:${PORT}`));

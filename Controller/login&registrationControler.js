@@ -1,39 +1,67 @@
 import { error } from "console";
-import{
-createAccount,
-findUserByEmail,
-validateUserCredentials,
-updateUserPassword,
-deleteUserByEmail
-}from "../services/userServices.js";
+import {
+    createAccount,
+    findUserByEmail,
+    validateUserCredentials,
+    updateUserPassword,
+    deleteUserByEmail
+} from "../services/userServices.js";
 
 export const loginUser = async (req, res) => {
-  const { email, password } = req.body;
-  // Add login logic here
+    const { email, password } = req.body;
+
+    try {
+        const user = await validateUserCredentials(email, password);
+
+        if (!user) {
+            return res.status(401).json({
+                success: false,
+                message: "Invalid email or password."
+            });
+        }
+
+        return res.status(200).json({
+            success: true,
+            message: "Login successful."
+        });
+
+    } catch (err) {
+        console.error(err);
+
+        return res.status(500).json({
+            success: false,
+            message: "Something went wrong."
+        });
+    }
 };
 
 export const registerUser = async (req, res) => {
-  const { firstName, lastName, email, password } = req.body;
-  const fullname= firstName+ ' '+ lastName;
-  try {
+    const { firstName, lastName, email, password } = req.body;
+    const fullname = `${firstName} ${lastName}`;
 
+    try {
+        const user = await findUserByEmail(email);
 
-    await createAccount(fullname,email,password);
-    res.redirect("/");
+        if (user) {
+            return res.status(409).json({
+                success: false,
+                message: "Email already registered."
+            });
+        }
+        await createAccount(fullname, email, password);
 
-} catch (err) {
-
-    if (err.code === 11000) {
-
-        return res.status(409).render("index", {
-            error: "Email already registered."
+        return res.status(201).json({
+            success: true,
+            message: "Registration successful."
         });
 
+    } catch (err) {
+
+        console.error(err);
+
+        return res.status(500).json({
+            success: false,
+            message: "Something went wrong."
+        });
     }
-
-    console.error(err);
-
-    res.status(500).send("Something went wrong.");
-
-}
 };
