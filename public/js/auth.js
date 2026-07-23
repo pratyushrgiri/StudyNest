@@ -31,7 +31,39 @@ forms.forEach(form => {
                 return;
             }
 
-            form.submit();
+            // Send login data to backend
+            try {
+                const response = await fetch("/login", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        email,
+                        password
+                    })
+                });
+
+                const data = await response.json();
+
+                if (!response.ok) {
+                    sendError(
+                        "Sign-in issue",
+                        data.message
+                    );
+                    return;
+                }
+
+                // Login successful
+                window.location.href = "/dashboard";
+
+            } catch (error) {
+                console.error(error);
+                sendError(
+                    "Sign-in issue",
+                    "Something went wrong. Please try again."
+                );
+            }
         }
 
 

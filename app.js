@@ -17,10 +17,8 @@ app.use(express.static("public/js"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// Routes
-app.use("/", pageRouter);
-app.use("/", authRouter);
-
-app.listen(PORT, () => {
-  console.log(`Server Started! http://localhost:${PORT}`);
-});
+// page routes
+app.use('/',pageRouter);
+//login and registration routes
+app.use('/', authRouter);
+app.listen(8000,()=>console.log(`Server Started! http://localhost:${PORT}`));
