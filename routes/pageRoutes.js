@@ -7,14 +7,17 @@ import  {
             getTimeTable,
             getAssignments
         } from "../Controller/pageController.js";
+
+//sesson check
+import { requireLogin,checkSession } from "../middleware/sesson.js";
 const pageRouter = express.Router()
 
-pageRouter.get('/',getIndex);
-pageRouter.get('/dashboard',getDashboard);
-pageRouter.get('/homework',getHomework);
-pageRouter.get('/notes',getNotes);
-pageRouter.get('/timetable',getTimeTable);
-pageRouter.get('/assignments',getAssignments);
-pageRouter.get('/index',getIndex);
+pageRouter.get('/'||'/index',checkSession, getIndex);
+pageRouter.get('/dashboard',requireLogin, getDashboard);
+pageRouter.get('/homework',requireLogin, getHomework);
+pageRouter.get('/notes',requireLogin, getNotes);
+pageRouter.get('/timetable',requireLogin, getTimeTable);
+pageRouter.get('/assignments',requireLogin, getAssignments);
+pageRouter.get('/index',checkSession, getIndex);
 export default pageRouter;
 

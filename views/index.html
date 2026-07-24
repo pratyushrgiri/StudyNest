@@ -1,172 +1,250 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Study Nest — Sign in</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="index.css">
-</head>
-<body>
-
-<div class="wrap">
-
-  <!-- ============ LEFT: brand + note stack ============ -->
-  <section class="brand">
-    <div class="brand-top">
-      <span class="mark">StudyNest · beta</span>
-      <h1>Every class,<br><em>one quiet</em> place.</h1>
-      <p class="tag">Schedules, timetables, homework and teacher notes — written in markdown, kept exactly where you left them.</p>
-    </div>
-
-    <div class="stack" aria-hidden="true">
-      <div class="note n1">
-        <div class="h"># Physics · Ch. 4</div>
-        <div class="dim">Momentum &amp; impulse —</div>
-        <div class="dim">review before Friday's quiz.</div>
-      </div>
-      <div class="note n2">
-        <div class="h">Homework</div>
-        <div><span class="tick">✓</span> Essay draft</div>
-        <div class="dim">☐ Read Chapter 7</div>
-      </div>
-      <div class="note n3">
-        <div class="h">Mon — Timetable</div>
-        <div class="dim">09:00 · Calculus</div>
-        <div class="dim">11:00 · Chemistry</div>
-      </div>
-      <div class="note n4">
-        <div class="h">&gt; Teacher's note</div>
-        <div class="dim">Ask Mr. Rao about</div>
-        <div class="dim">the lab report format.</div>
-      </div>
-      <div class="note n5">
-        <div class="h">## Due Fri</div>
-        <div class="dim">History assignment —</div>
-        <div class="dim">1200 words, cite 3 sources.</div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Study Nest — Sign in</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div class="error-panel" role="alert" aria-live="assertive">
+      <span class="error-icon">!</span>
+      <div>
+        <strong id="issue-title">Sign-in issue</strong>
+        <p id="issue-description">
+          Please check your school email and password, then try again.
+        </p>
       </div>
     </div>
 
-    <div class="brand-bottom">
-      <div class="stat"><b>01</b><span>Sign in</span></div>
-      <div class="stat"><b>02</b><span>Add your timetable</span></div>
-      <div class="stat"><b>03</b><span>Start taking notes</span></div>
-    </div>
-  </section>
-
-  <!-- ============ RIGHT: auth card ============ -->
-  <section class="stage">
-    <div class="auth">
-
-      <input type="radio" name="tab" id="tab-login" checked>
-      <input type="radio" name="tab" id="tab-register">
-
-      <div class="tabs">
-        <label for="tab-login">Sign in</label>
-        <label for="tab-register">Create account</label>
-        <span class="indicator"></span>
-      </div>
-
-      <div class="error-panel" role="alert">
-        <span class="error-icon">!</span>
-        <div>
-          <strong id="issue-title">Sign-in issue</strong>
-          <p id="issue-description">Please check your school email and password, then try again.</p>
+    <div class="wrap">
+      <!-- ============ LEFT: brand + note stack ============ -->
+      <section class="brand">
+        <div class="brand-top">
+          <span class="mark">StudyNest · beta</span>
+          <h1>Every class,<br /><em>one quiet</em> place.</h1>
+          <p class="tag">
+            Schedules, timetables, homework and teacher notes — written in
+            markdown, kept exactly where you left them.
+          </p>
         </div>
-      </div>
 
-      <div class="panels">
-
-        <!-- ---- LOGIN ---- -->
-        <form class="panel panel-login auth-form" autocomplete="off" action="/login" method="POST">
-          <div>
-            <h2 class="title">Welcome back</h2>
-            <p class="sub">Sign in to open your nest.</p>
+        <div class="stack" aria-hidden="true">
+          <div class="note n1">
+            <div class="h"># Physics · Ch. 4</div>
+            <div class="dim">Momentum &amp; impulse —</div>
+            <div class="dim">review before Friday's quiz.</div>
           </div>
-
-          <div class="field">
-            <input type="email" class="email" name="email" placeholder=" " >
-            <label>School email</label>
-            <span class="bar"></span>
+          <div class="note n2">
+            <div class="h">Homework</div>
+            <div><span class="tick">✓</span> Essay draft</div>
+            <div class="dim">☐ Read Chapter 7</div>
           </div>
-
-          <div class="field">
-            <input type="password" class="password" name="password" placeholder=" " >
-            <label>⁕⁕⁕⁕⁕⁕⁕⁕</label>
-            <span class="bar"></span>
+          <div class="note n3">
+            <div class="h">Mon — Timetable</div>
+            <div class="dim">09:00 · Calculus</div>
+            <div class="dim">11:00 · Chemistry</div>
           </div>
-
-          <div class="aux">
-            <label class="check"><input type="checkbox" name="staySignedIn"> Stay signed in</label>
-            <a href="#">Forgot password?</a>
+          <div class="note n4">
+            <div class="h">&gt; Teacher's note</div>
+            <div class="dim">Ask Mr. Rao about</div>
+            <div class="dim">the lab report format.</div>
           </div>
-
-          <!-- <a href="dashboard" class="cta" style="display:flex; align-items:center; justify-content:center;"><span>Sign in</span></a> -->
-          <button type="submit" class="cta" style="display:flex; align-items:center; justify-content:center;" ><span>Sign in</span></button>
-
-
-          <div class="divider">or</div>
-
-          <p class="switch">New to Study Nest?
-            <label for="tab-register" >Create an account</label>
-          </p>
-        </form>
-
-        <!-- ---- REGISTER ---- -->
-        <form class="panel panel-register auth-form" autocomplete="off" action="/register" method="POST">
-          <div>
-            <h2 class="title">Build your nest</h2>
-            <p class="sub">Takes less than a minute.</p>
+          <div class="note n5">
+            <div class="h">## Due Fri</div>
+            <div class="dim">History assignment —</div>
+            <div class="dim">1200 words, cite 3 sources.</div>
           </div>
+        </div>
 
-          <div class="row2">
-            <div class="field">
-              <input type="text"class="name" id="firstName" name="firstName" placeholder=" " >
-              <label>First name</label>
-              <span class="bar"></span>
-            </div>
-            <div class="field">
-              <input type="text" class="name" id="lastName" name="lastName" placeholder=" " >
-              <label>Last name</label>
-              <span class="bar"></span>
-            </div>
-          </div>
+        <div class="brand-bottom">
+          <div class="stat"><b>01</b><span>Sign in</span></div>
+          <div class="stat"><b>02</b><span>Add your timetable</span></div>
+          <div class="stat"><b>03</b><span>Start taking notes</span></div>
+        </div>
+      </section>
 
-          <div class="field">
-            <input type="email" class="email" name="email" placeholder=" " >
-            <label>School email</label>
-            <span class="bar"></span>
-          </div>
+      <!-- ============ RIGHT: auth card ============ -->
+      <section class="stage">
+        <div class="auth">
+          <input type="radio" name="tab" id="tab-login" checked />
+          <input type="radio" name="tab" id="tab-register" />
 
-          <div class="field">
-            <input type="password" class="password" name="password" id="password" placeholder=" " >
-            <label>Password</label>
-            <span class="bar"></span>
-          </div>
-
-          <div class="field">
-            <input type="password" class="password" name="confirmPassword" id="confirmPassword" placeholder=" " >
-            <label>Confirm password</label>
-            <span class="bar"></span>
-          </div>
-
-          <label class="check"><input type="checkbox" name="terms" > I agree to the Terms &amp; Privacy Policy</label>
-
-          <!-- <a href="dashboard" class="cta" style="display:flex; align-items:center; justify-content:center;"><span>Create account</span></a> -->
-          <button type="submit" class="cta" style="display:flex; align-items:center; justify-content:center;"><span>Create account</span></button>
-          <p class="switch">Already have an account?
+          <div class="tabs">
             <label for="tab-login">Sign in</label>
-          </p>
-        </form>
+            <label for="tab-register">Create account</label>
+            <span class="indicator"></span>
+          </div>
 
-      </div>
+          <div class="panels">
+            <!-- ---- LOGIN ---- -->
+            <form
+              class="panel panel-login auth-form"
+              autocomplete="off"
+              action="/login"
+              method="POST"
+            >
+              <div>
+                <h2 class="title">Welcome back</h2>
+                <p class="sub">Sign in to open your nest.</p>
+              </div>
+
+              <div class="field">
+                <input
+                  type="email"
+                  class="email"
+                  name="email"
+                  placeholder=" "
+                />
+                <label>School email</label>
+                <span class="bar"></span>
+              </div>
+
+              <div class="field">
+                <input
+                  type="password"
+                  class="password"
+                  name="password"
+                  placeholder=" "
+                />
+                <label>⁕⁕⁕⁕⁕⁕⁕⁕</label>
+                <span class="bar"></span>
+              </div>
+
+              <div class="aux">
+                <label class="check"
+                  ><input type="checkbox" name="staySignedIn" /> Stay signed
+                  in</label
+                >
+                <a href="#">Forgot password?</a>
+              </div>
+
+              <!-- <a href="dashboard" class="cta" style="display:flex; align-items:center; justify-content:center;"><span>Sign in</span></a> -->
+              <button
+                type="submit"
+                class="cta"
+                style="
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                "
+              >
+                <span>Sign in</span>
+              </button>
+
+              <div class="divider">or</div>
+
+              <p class="switch">
+                New to Study Nest?
+                <label for="tab-register">Create an account</label>
+              </p>
+            </form>
+
+            <!-- ---- REGISTER ---- -->
+            <form
+              class="panel panel-register auth-form"
+              autocomplete="off"
+              action="/register"
+              method="POST"
+            >
+              <div>
+                <h2 class="title">Build your nest</h2>
+                <p class="sub">Takes less than a minute.</p>
+              </div>
+
+              <div class="row2">
+                <div class="field">
+                  <input
+                    type="text"
+                    class="name"
+                    id="firstName"
+                    name="firstName"
+                    placeholder=" "
+                  />
+                  <label>First name</label>
+                  <span class="bar"></span>
+                </div>
+                <div class="field">
+                  <input
+                    type="text"
+                    class="name"
+                    id="lastName"
+                    name="lastName"
+                    placeholder=" "
+                  />
+                  <label>Last name</label>
+                  <span class="bar"></span>
+                </div>
+              </div>
+
+              <div class="field">
+                <input
+                  type="email"
+                  class="email"
+                  name="email"
+                  placeholder=" "
+                />
+                <label>School email</label>
+                <span class="bar"></span>
+              </div>
+
+              <div class="field">
+                <input
+                  type="password"
+                  class="password"
+                  name="password"
+                  id="password"
+                  placeholder=" "
+                />
+                <label>Password</label>
+                <span class="bar"></span>
+              </div>
+
+              <div class="field">
+                <input
+                  type="password"
+                  class="password"
+                  name="confirmPassword"
+                  id="confirmPassword"
+                  placeholder=" "
+                />
+                <label>Confirm password</label>
+                <span class="bar"></span>
+              </div>
+
+              <label class="check"
+                ><input type="checkbox" name="terms" /> I agree to the Terms
+                &amp; Privacy Policy</label
+              >
+
+              <!-- <a href="dashboard" class="cta" style="display:flex; align-items:center; justify-content:center;"><span>Create account</span></a> -->
+              <button
+                type="submit"
+                class="cta"
+                style="
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                "
+              >
+                <span>Create account</span>
+              </button>
+              <p class="switch">
+                Already have an account?
+                <label for="tab-login">Sign in</label>
+              </p>
+            </form>
+          </div>
+        </div>
+      </section>
     </div>
-  </section>
-
-</div>
-<script src="auth.js"></script>
-</body>
+    <script src="/auth.js"></script>
+  </body>
 </html>

@@ -19,7 +19,11 @@ export const loginUser = async (req, res) => {
                 message: "Invalid email or password."
             });
         }
-
+        //session creation
+        req.session.user = {
+            id: user._id,
+            name: user.name
+        };
         return res.status(200).json({
             success: true,
             message: "Login successful."
@@ -65,3 +69,21 @@ export const registerUser = async (req, res) => {
         });
     }
 };
+
+export const logOutUser = (req, res) => {
+    req.session.destroy((err) => {
+        if (err) {
+            console.error(err);
+            return res.status(500).json({
+                success: false,
+                message: "Logout failed."
+            });
+        }
+        res.clearCookie('connect.sid');
+        return res.status(200).json({
+            success: true,
+            message: "Logout successful."
+        });
+    });
+}
+

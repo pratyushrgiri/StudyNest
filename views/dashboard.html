@@ -1,199 +1,322 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Study Nest — Dashboard</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="dashboard.css">
-</head>
-<body>
-<div class="grain"></div>
-
-<div class="shell">
-
-  <!-- ================= SIDEBAR ================= -->
-  <aside class="sidebar">
-    <a href="dashboard" class="brandmark"><span class="dot"></span><span class="word">Study Nest</span></a>
-
-    <span class="nav-label">Overview</span>
-    <nav class="nav">
-      <a href="dashboard" class="active">
-        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2.5" y="2.5" width="6" height="6" rx="1"/><rect x="11.5" y="2.5" width="6" height="6" rx="1"/><rect x="2.5" y="11.5" width="6" height="6" rx="1"/><rect x="11.5" y="11.5" width="6" height="6" rx="1"/></svg>
-        <span class="label">Dashboard</span>
-      </a>
-    </nav>
-
-    <span class="nav-label">Workspace</span>
-    <nav class="nav">
-      <a href="notes">
-        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="2.5" width="12" height="15" rx="1.5"/><line x1="7" y1="7" x2="13" y2="7"/><line x1="7" y1="10.5" x2="13" y2="10.5"/><line x1="7" y1="14" x2="10.5" y2="14"/></svg>
-        <span class="label">Notes</span>
-      </a>
-      <a href="timetable">
-        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2.5" y="4" width="15" height="13.5" rx="1.5"/><line x1="2.5" y1="8" x2="17.5" y2="8"/><line x1="6" y1="2" x2="6" y2="5.5"/><line x1="14" y1="2" x2="14" y2="5.5"/></svg>
-        <span class="label">Timetable</span>
-      </a>
-      <a href="homework">
-        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3.5" width="4" height="4" rx=".8"/><path d="M4 5.5l1 1 1.8-1.8"/><line x1="9.5" y1="5.5" x2="17" y2="5.5"/><rect x="3" y="11.5" width="4" height="4" rx=".8"/><line x1="9.5" y1="13.5" x2="17" y2="13.5"/></svg>
-        <span class="label">Homework</span>
-      </a>
-      <a href="assignments">
-        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="5" y1="2.5" x2="5" y2="17.5"/><path d="M5 3.5h9l-2.5 3L14 9.5H5"/></svg>
-        <span class="label">Assignments</span>
-      </a>
-    </nav>
-
-    <div class="sidebar-foot">
-      <div class="profile">
-        <div class="avatar">A</div>
-        <div class="who"><b>Aria Kova</b><span>Grade 11</span></div>
-        <a href="index" class="logout" title="Sign out">
-          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 3H4.5a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1H8"/><path d="M13 6.5l3.5 3.5-3.5 3.5"/><line x1="16.3" y1="10" x2="7.5" y2="10"/></svg>
-        </a>
-      </div>
-    </div>
-  </aside>
-
-  <!-- ================= MAIN ================= -->
-  <main class="main">
-
-    <div class="topbar">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Study Nest — Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="dashboard.css" />
+  </head>
+  <body>
+    <div class="error-panel" role="alert" aria-live="assertive">
+      <span class="error-icon">!</span>
       <div>
-        <span class="eyebrow">Wednesday · 18 July</span>
-        <h1>Good afternoon, Aria</h1>
-      </div>
-      <div class="topbar-actions">
-        <div class="search">
-          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8.5" cy="8.5" r="5.5"/><line x1="16" y1="16" x2="12.6" y2="12.6"/></svg>
-          <input type="text" placeholder="Search notes, classes…">
-        </div>
+        <strong id="issue-title">Dashboard issue</strong>
+        <p id="issue-description">Something went wrong. Please try again.</p>
       </div>
     </div>
+    <div class="grain"></div>
 
-    <div class="stats">
-      <div class="card stat-card"><b>5</b><span>Classes today</span></div>
-      <div class="card stat-card"><b>3</b><span>Homework due</span></div>
-      <div class="card stat-card"><b>2</b><span>Assignments open</span></div>
-      <div class="card stat-card"><b>128</b><span>Notes saved</span></div>
-    </div>
+    <div class="shell">
+      <!-- ================= SIDEBAR ================= -->
+      <aside class="sidebar">
+        <a href="dashboard" class="brandmark"
+          ><span class="dot"></span><span class="word">Study Nest</span></a
+        >
 
-    <div class="grid-2">
+        <span class="nav-label">Overview</span>
+        <nav class="nav">
+          <a href="dashboard" class="active">
+            <svg
+              viewBox="0 0 20 20"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+            >
+              <rect x="2.5" y="2.5" width="6" height="6" rx="1" />
+              <rect x="11.5" y="2.5" width="6" height="6" rx="1" />
+              <rect x="2.5" y="11.5" width="6" height="6" rx="1" />
+              <rect x="11.5" y="11.5" width="6" height="6" rx="1" />
+            </svg>
+            <span class="label">Dashboard</span>
+          </a>
+        </nav>
 
-      <!-- today's schedule -->
-      <div class="card">
-        <div class="section-label">Today's schedule</div>
-        <div class="timeline">
-          <div class="tl-item">
-            <div class="tl-time">08:00</div>
-            <div class="tl-body">
-              <div><div class="tl-title">Calculus II</div><div class="tl-meta">Mr. Alvarez · Room 214</div></div>
-              <span class="tl-tag">50 min</span>
-            </div>
-          </div>
-          <div class="tl-item now">
-            <div class="tl-time">09:10</div>
-            <div class="tl-body">
-              <div><div class="tl-title">Chemistry — Lab</div><div class="tl-meta">Ms. Chen · Lab 3</div></div>
-              <span class="chip filled">Now</span>
-            </div>
-          </div>
-          <div class="tl-item">
-            <div class="tl-time">10:30</div>
-            <div class="tl-body">
-              <div><div class="tl-title">World History</div><div class="tl-meta">Mr. Okoye · Room 108</div></div>
-              <span class="tl-tag">45 min</span>
-            </div>
-          </div>
-          <div class="tl-item">
-            <div class="tl-time">12:15</div>
-            <div class="tl-body">
-              <div><div class="tl-title">Physics</div><div class="tl-meta">Mr. Rao · Room 302</div></div>
-              <span class="tl-tag">50 min</span>
-            </div>
-          </div>
-          <div class="tl-item">
-            <div class="tl-time">14:00</div>
-            <div class="tl-body">
-              <div><div class="tl-title">English Literature</div><div class="tl-meta">Ms. Bianchi · Room 119</div></div>
-              <span class="tl-tag">45 min</span>
-            </div>
+        <span class="nav-label">Workspace</span>
+        <nav class="nav">
+          <a href="notes">
+            <svg
+              viewBox="0 0 20 20"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+            >
+              <rect x="4" y="2.5" width="12" height="15" rx="1.5" />
+              <line x1="7" y1="7" x2="13" y2="7" />
+              <line x1="7" y1="10.5" x2="13" y2="10.5" />
+              <line x1="7" y1="14" x2="10.5" y2="14" />
+            </svg>
+            <span class="label">Notes</span>
+          </a>
+          <a href="timetable">
+            <svg
+              viewBox="0 0 20 20"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+            >
+              <rect x="2.5" y="4" width="15" height="13.5" rx="1.5" />
+              <line x1="2.5" y1="8" x2="17.5" y2="8" />
+              <line x1="6" y1="2" x2="6" y2="5.5" />
+              <line x1="14" y1="2" x2="14" y2="5.5" />
+            </svg>
+            <span class="label">Timetable</span>
+          </a>
+          <a href="homework">
+            <svg
+              viewBox="0 0 20 20"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+            >
+              <rect x="3" y="3.5" width="4" height="4" rx=".8" />
+              <path d="M4 5.5l1 1 1.8-1.8" />
+              <line x1="9.5" y1="5.5" x2="17" y2="5.5" />
+              <rect x="3" y="11.5" width="4" height="4" rx=".8" />
+              <line x1="9.5" y1="13.5" x2="17" y2="13.5" />
+            </svg>
+            <span class="label">Homework</span>
+          </a>
+          <a href="assignments">
+            <svg
+              viewBox="0 0 20 20"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+            >
+              <line x1="5" y1="2.5" x2="5" y2="17.5" />
+              <path d="M5 3.5h9l-2.5 3L14 9.5H5" />
+            </svg>
+            <span class="label">Assignments</span>
+          </a>
+        </nav>
+
+        <div class="sidebar-foot">
+          <div class="profile">
+            <div class="avatar">A</div>
+            <div class="who"><b>Aria Kova</b><span>Grade 11</span></div>
+            <a href="/" class="logout" title="Sign out">
+              <svg
+                viewBox="0 0 20 20"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+              >
+                <path d="M8 3H4.5a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1H8" />
+                <path d="M13 6.5l3.5 3.5-3.5 3.5" />
+                <line x1="16.3" y1="10" x2="7.5" y2="10" />
+              </svg>
+            </a>
           </div>
         </div>
-      </div>
+      </aside>
 
-      <!-- due soon -->
-      <div class="card">
-        <div class="section-label">Due soon</div>
-
-        <div class="due-item">
-          <span class="status-dot overdue" style="margin-top:.35rem;"></span>
-          <div style="flex:1">
-            <div class="due-title">Lab report — momentum experiment</div>
-            <div class="due-meta"><span class="chip">Physics</span><span class="due-date">Overdue · Mon</span></div>
-          </div>
-        </div>
-
-        <div class="due-item">
-          <span class="status-dot" style="margin-top:.35rem;"></span>
-          <div style="flex:1">
-            <div class="due-title">History essay — industrial revolution</div>
-            <div class="due-meta"><span class="chip">History</span><span class="due-date">Due Friday</span></div>
-          </div>
-        </div>
-
-        <div class="due-item">
-          <span class="status-dot" style="margin-top:.35rem;"></span>
-          <div style="flex:1">
-            <div class="due-title">Chapter 7 reading &amp; summary</div>
-            <div class="due-meta"><span class="chip">English</span><span class="due-date">Due Mon</span></div>
-          </div>
-        </div>
-
-        <div class="due-item">
-          <span class="status-dot" style="margin-top:.35rem;"></span>
-          <div style="flex:1">
-            <div class="due-title">Science fair — final presentation</div>
-            <div class="due-meta"><span class="chip outline-strong">Assignment</span><span class="due-date">Due 28 Jul</span></div>
-          </div>
-        </div>
-
-        <a href="homework" class="btn" style="width:100%; margin-top:1rem;">View all homework</a>
-      </div>
-
-    </div>
-
-    <div style="margin-top:1.6rem;">
-      <div class="section-label">Recent notes</div>
-      <div class="notes-row">
-        <a class="note-preview" href="notes">
+      <!-- ================= MAIN ================= -->
+      <main class="main">
+        <div class="topbar">
           <div>
-            <div class="np-title"># Physics · Momentum</div>
-            <div class="np-snip">Impulse = change in momentum.<br>Review before Friday's quiz.</div>
+            <span class="eyebrow">Wednesday · 18 July</span>
+            <h1>Good afternoon, Aria</h1>
           </div>
-          <div class="np-foot"><span>Class Notes</span><span>2h ago</span></div>
-        </a>
-        <a class="note-preview" href="notes">
-          <div>
-            <div class="np-title">Mr. Rao — Lab Guidelines</div>
-            <div class="np-snip">&gt; Always label axes.<br>&gt; Include uncertainty values.</div>
+          <div class="topbar-actions">
+            <div class="search">
+              <svg
+                viewBox="0 0 20 20"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+              >
+                <circle cx="8.5" cy="8.5" r="5.5" />
+                <line x1="16" y1="16" x2="12.6" y2="12.6" />
+              </svg>
+              <input type="text" placeholder="Search notes, classes…" />
+            </div>
           </div>
-          <div class="np-foot"><span>Teacher's Notes</span><span>Yesterday</span></div>
-        </a>
-        <a class="note-preview" href="notes">
-          <div>
-            <div class="np-title">## History Essay Outline</div>
-            <div class="np-snip">1. Causes<br>2. Key figures<br>3. Long-term impact</div>
-          </div>
-          <div class="np-foot"><span>Class Notes</span><span>2 days ago</span></div>
-        </a>
-      </div>
-    </div>
+        </div>
 
-  </main>
-</div>
-</body>
+        <div class="stats">
+          <div class="card stat-card"><b>5</b><span>Classes today</span></div>
+          <div class="card stat-card"><b>3</b><span>Homework due</span></div>
+          <div class="card stat-card">
+            <b>2</b><span>Assignments open</span>
+          </div>
+          <div class="card stat-card"><b>128</b><span>Notes saved</span></div>
+        </div>
+
+        <div class="grid-2">
+          <!-- today's schedule -->
+          <div class="card">
+            <div class="section-label">Today's schedule</div>
+            <div class="timeline">
+              <div class="tl-item">
+                <div class="tl-time">08:00</div>
+                <div class="tl-body">
+                  <div>
+                    <div class="tl-title">Calculus II</div>
+                    <div class="tl-meta">Mr. Alvarez · Room 214</div>
+                  </div>
+                  <span class="tl-tag">50 min</span>
+                </div>
+              </div>
+              <div class="tl-item now">
+                <div class="tl-time">09:10</div>
+                <div class="tl-body">
+                  <div>
+                    <div class="tl-title">Chemistry — Lab</div>
+                    <div class="tl-meta">Ms. Chen · Lab 3</div>
+                  </div>
+                  <span class="chip filled">Now</span>
+                </div>
+              </div>
+              <div class="tl-item">
+                <div class="tl-time">10:30</div>
+                <div class="tl-body">
+                  <div>
+                    <div class="tl-title">World History</div>
+                    <div class="tl-meta">Mr. Okoye · Room 108</div>
+                  </div>
+                  <span class="tl-tag">45 min</span>
+                </div>
+              </div>
+              <div class="tl-item">
+                <div class="tl-time">12:15</div>
+                <div class="tl-body">
+                  <div>
+                    <div class="tl-title">Physics</div>
+                    <div class="tl-meta">Mr. Rao · Room 302</div>
+                  </div>
+                  <span class="tl-tag">50 min</span>
+                </div>
+              </div>
+              <div class="tl-item">
+                <div class="tl-time">14:00</div>
+                <div class="tl-body">
+                  <div>
+                    <div class="tl-title">English Literature</div>
+                    <div class="tl-meta">Ms. Bianchi · Room 119</div>
+                  </div>
+                  <span class="tl-tag">45 min</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- due soon -->
+          <div class="card">
+            <div class="section-label">Due soon</div>
+
+            <div class="due-item">
+              <span
+                class="status-dot overdue"
+                style="margin-top: 0.35rem"
+              ></span>
+              <div style="flex: 1">
+                <div class="due-title">Lab report — momentum experiment</div>
+                <div class="due-meta">
+                  <span class="chip">Physics</span
+                  ><span class="due-date">Overdue · Mon</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="due-item">
+              <span class="status-dot" style="margin-top: 0.35rem"></span>
+              <div style="flex: 1">
+                <div class="due-title">
+                  History essay — industrial revolution
+                </div>
+                <div class="due-meta">
+                  <span class="chip">History</span
+                  ><span class="due-date">Due Friday</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="due-item">
+              <span class="status-dot" style="margin-top: 0.35rem"></span>
+              <div style="flex: 1">
+                <div class="due-title">Chapter 7 reading &amp; summary</div>
+                <div class="due-meta">
+                  <span class="chip">English</span
+                  ><span class="due-date">Due Mon</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="due-item">
+              <span class="status-dot" style="margin-top: 0.35rem"></span>
+              <div style="flex: 1">
+                <div class="due-title">Science fair — final presentation</div>
+                <div class="due-meta">
+                  <span class="chip outline-strong">Assignment</span
+                  ><span class="due-date">Due 28 Jul</span>
+                </div>
+              </div>
+            </div>
+
+            <a href="homework" class="btn" style="width: 100%; margin-top: 1rem"
+              >View all homework</a
+            >
+          </div>
+        </div>
+
+        <div style="margin-top: 1.6rem">
+          <div class="section-label">Recent notes</div>
+          <div class="notes-row">
+            <a class="note-preview" href="notes">
+              <div>
+                <div class="np-title"># Physics · Momentum</div>
+                <div class="np-snip">
+                  Impulse = change in momentum.<br />Review before Friday's
+                  quiz.
+                </div>
+              </div>
+              <div class="np-foot">
+                <span>Class Notes</span><span>2h ago</span>
+              </div>
+            </a>
+            <a class="note-preview" href="notes">
+              <div>
+                <div class="np-title">Mr. Rao — Lab Guidelines</div>
+                <div class="np-snip">
+                  &gt; Always label axes.<br />&gt; Include uncertainty values.
+                </div>
+              </div>
+              <div class="np-foot">
+                <span>Teacher's Notes</span><span>Yesterday</span>
+              </div>
+            </a>
+            <a class="note-preview" href="notes">
+              <div>
+                <div class="np-title">## History Essay Outline</div>
+                <div class="np-snip">
+                  1. Causes<br />2. Key figures<br />3. Long-term impact
+                </div>
+              </div>
+              <div class="np-foot">
+                <span>Class Notes</span><span>2 days ago</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script src="/auth.js"></script>
+  </body>
 </html>

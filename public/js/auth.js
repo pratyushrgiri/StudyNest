@@ -1,5 +1,5 @@
 const forms = document.querySelectorAll(".auth-form");
-
+// Add event listeners to all forms
 forms.forEach(form => {
 
     form.addEventListener("submit", async (event) => {
@@ -172,6 +172,43 @@ forms.forEach(form => {
 
 });
 
+// logout functionality
+const logoutButton = document.querySelector(".logout");
+
+if (logoutButton) {
+    logoutButton.addEventListener("click", async (event) => {
+        event.preventDefault();
+
+        try {
+            const response = await fetch("/logout", {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            });
+
+            const data = await response.json();
+
+            if (!response.ok) {
+                sendError(
+                    "Logout issue",
+                    data.message
+                );
+                return;
+            }
+
+            // Logout successful
+            window.location.href = "/";
+
+        } catch (error) {
+            console.error(error);
+            sendError(
+                "Logout issue",
+                "Something went wrong. Please try again."
+            );
+        }
+    });
+}
 
 
 function sendError(title, description) {
@@ -179,6 +216,11 @@ function sendError(title, description) {
     const errorPanel = document.querySelector(".error-panel");
     const issueTitle = document.getElementById("issue-title");
     const issueDescription = document.getElementById("issue-description");
+
+    if (!errorPanel || !issueTitle || !issueDescription) {
+        console.error(title, description);
+        return;
+    }
 
 
     issueTitle.textContent = title;
@@ -193,6 +235,10 @@ function sendError(title, description) {
 function hideError() {
 
     const errorPanel = document.querySelector(".error-panel");
+
+    if (!errorPanel) {
+        return;
+    }
 
     errorPanel.style.display = "none";
 

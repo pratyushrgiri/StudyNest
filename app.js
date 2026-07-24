@@ -1,4 +1,5 @@
 import express from "express";
+import expressSession from "express-session";
 import dotenv from "dotenv";
 import pageRouter from "./routes/pageRoutes.js";
 import authRouter from "./routes/login&registrationRoutes.js";
@@ -7,6 +8,18 @@ import connectDB from "./config/dbConfig.js";
 dotenv.config();
 
 const app = express();
+
+// Session configuration
+app.use(expressSession({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false
+}));
+
+app.use((req, res, next) => {
+    res.set("Cache-Control", "no-store, no-cache, must-revalidate, private");
+    next();
+});
 
 connectDB();
 
@@ -18,7 +31,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // page routes
-app.use('/',pageRouter);
+app.use('/', pageRouter);
 //login and registration routes
 app.use('/', authRouter);
-app.listen(8000,()=>console.log(`Server Started! http://localhost:${PORT}`));
+app.listen(8000, () => console.log(`Server Started! http://localhost:${PORT}`));
